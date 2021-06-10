@@ -1,0 +1,247 @@
+/**
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy
+ * of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING, SOFTWARE
+ * DISTRIBUTED UNDER THE LICENSE IS DISTRIBUTED ON AN "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+ * SEE THE LICENSE FOR THE SPECIFIC LANGUAGE GOVERNING PERMISSIONS AND
+ * LIMITATIONS UNDER THE LICENSE.
+ */
+
+/* ----------------------------------------------------------------------------
+ * Keyframes
+ * ------------------------------------------------------------------------- */
+
+/* Activate scroll snapping with delay */
+@keyframes md-sidebar__scrollwrap--hack {
+  0%, 99%, 100% {
+    scroll-snap-type: none;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ * Overrides
+ * ------------------------------------------------------------------------- */
+
+/* Induce a new stacking context, so we can use absolute positioning which
+   appears to be the only consistent way of moving the permalink to the
+   beginning of the headline without tampering with the HTML */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+/* Remove the anchor offset hack in favor of scroll margin */
+.md-typeset h1[id]::before,
+.md-typeset h2[id]::before,
+.md-typeset h3[id]::before,
+.md-typeset h4[id]::before,
+.md-typeset h5[id]::before,
+.md-typeset h6[id]::before {
+  display: none;
+}
+
+/* Add default scroll margins */
+.md-typeset [id]:target {
+  scroll-margin-top: 3.6rem;
+}
+
+/* Adjust scroll margins for some headlines */
+.md-typeset h1[id]:target,
+.md-typeset h2[id]:target,
+.md-typeset h3[id]:target,
+.md-typeset h4[id]:target {
+  scroll-margin-top: 3.4rem;
+}
+
+/* Move headerlink to the beginning */
+.md-typeset .headerlink {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-0.1rem)
+}
+
+/* Fix layer position of buttons */
+.md-content__button {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure alignment when title has line break */
+.md-nav--primary .md-nav__link {
+  display: flex;
+}
+
+/* Define section counter */
+.md-nav--primary .md-nav__list {
+  counter-reset: section;
+}
+
+/* Increment counter for each section */
+.md-nav--primary .md-nav__link::before {
+  margin-right: .2rem;
+  counter-increment: section;
+  content: counter(section) ".";
+}
+
+/* Navigation title for drawer */
+.md-nav--primary .md-nav__title[for="__drawer"] {
+  height: 3.175rem;
+  background: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+  padding: 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 3.5;
+  box-shadow:
+    0 0 0.2rem rgba(0,0,0,.1),
+    0 0.2rem 0.4rem rgba(0,0,0,.2)
+}
+
+/* Hide logo */
+.md-nav--primary .md-nav__title[for="__drawer"] img {
+  display: none;
+}
+
+/* Remove table of contents */
+.md-sidebar--secondary {
+  display: none;
+}
+
+/* Adjust tablet styles */
+@media screen and (min-width: 60em) and (max-width: 76.1875em) {
+
+  /* Stretch content to whole width after removing table of contents */
+  .md-content {
+    max-width: 100%;
+  }
+}
+
+/* Adjust mobile/tablet styles */
+@media screen and (max-width: 76.1875em) {
+
+  /* Stretch content to whole width after removing table of contents */
+  .md-nav--primary .md-nav__title ~ .md-nav__list {
+    background: #EEE;
+  }
+}
+
+/* Adjust screen styles */
+@media screen and (min-width: 76.25em) {
+
+  /* Left-align grid */
+  .md-grid {
+    margin-left: 1rem;
+  }
+
+  /* Make space for sidebar */
+  .md-announce__inner {
+    padding-left: 0rem;
+  }
+
+  /* Make space for sidebar */
+  .md-header,
+  .md-footer,
+  .md-content {
+    margin-left: 16.25rem;
+  }
+
+  /* Stretch content to whole width after removing table of contents */
+  .md-content {
+    max-width: calc(100% - 12.1rem);
+  }
+
+  /* Primary sidebar */
+  .md-sidebar--primary {
+    position: absolute;
+    top: 1.1rem !important;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 16.25rem;
+    height: 100%;
+    padding-top: 0;
+    background: #EEE;
+    box-shadow:
+      inset 0 0 0.2rem rgba(0,0,0,.1),
+      inset 0 0.2rem 0.4rem rgba(0,0,0,.2)
+  }
+
+  /* Remove spacing on scrol wrapper */
+  .md-sidebar__scrollwrap {
+    margin: 0;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  /* Snap primary sidebar to the left */
+  .md-header[data-md-state="shadow"] ~ .md-container .md-sidebar--primary {
+    position: fixed;
+    top: 0 !important;
+  }
+
+  /* Navigation lists */
+  .md-nav--primary > .md-nav__list {
+    flex: 1;
+    padding: 1rem 0;
+    max-height: calc(100vh - 3.175rem);
+    overflow: auto;
+  }
+
+  /* Navigation titles */
+  .md-nav--primary .md-nav__title {
+    flex-shrink: 0;
+  }
+
+  /* Navigation items */
+  .md-nav--primary .md-nav__item {
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* Render table of contents as part of navigation */
+  .md-nav--primary .md-nav__link[for="__toc"] ~ .md-nav {
+    display: block;
+    margin-bottom: 1em;
+    border-left: px2rem(1px) solid var(--md-primary-fg-color);
+  }
+
+  /* Reset counter */
+  .md-nav--primary .md-nav__link[for="__toc"] ~ .md-nav .md-nav__link::before {
+    content: ""
+  }
+
+  .md-nav--primary .md-nav__link[for="__toc"] ~ .md-nav > .md-nav__title {
+    display: none;
+  }
+}
+
+/* Adjust print styles */
+@media print {
+
+  /* Remove padding */
+  .md-typeset h1,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset h4,
+  .md-typeset h5,
+  .md-typeset h6 {
+    position: initial;
+    padding-left: initial;
+  }
+}

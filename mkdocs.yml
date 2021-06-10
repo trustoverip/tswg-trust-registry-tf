@@ -1,0 +1,124 @@
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not
+# use this file except in compliance with the License. You may obtain a copy
+# of the License at:
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING, SOFTWARE
+# DISTRIBUTED UNDER THE LICENSE IS DISTRIBUTED ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# SEE THE LICENSE FOR THE SPECIFIC LANGUAGE GOVERNING PERMISSIONS AND
+# LIMITATIONS UNDER THE LICENSE.
+
+# Project information
+site_name: "TSS0001: Trust Registry"
+site_url: https://trinsic-id.github.io/tswg-trust-registry-tf/
+site_author: ToIP Trust Registry WG
+site_description: >-
+  Trust over IP Foundation specification for a Trust Registry
+
+# Repository information
+repo_name: Trust Registry Specification
+repo_url: https://github.com/trustoverip/tswg-trust-registry-tf
+
+# Content Generator Settings
+docs_dir: 'docs'
+site_dir: 'html'
+
+# Copyright information
+copyright: >-
+  Copyright &copy; 2020 Joint Development Foundation Projects, LLC, Trust over
+  IP Foundation Series <a href="https://jdfprojects.org/toip/">Terms of Use,
+  Privacy Policy and Cookie Policy</a>. The Joint Development Foundation
+  Projects, LLC is an affiliate of the Linux Foundation.
+
+# Navigation structure
+nav:
+ - Trust Registry Specification: index.md
+ - HTTP API Definition: versions/0.1.0.md
+
+# Theme configuration
+theme:
+  name: material
+  custom_dir: docs/theme/overrides
+  features:
+    - navigation.instant
+    # - navigation.tabs
+  favicon: theme/images/favicon.png
+  logo: theme/images/logo.svg
+  palette:
+    primary: white
+    accent: indigo
+
+# Plugin configuration
+plugins:
+  - search
+  - enumerate-headings:
+      strict: true
+      toc_depth: 3
+  - render_swagger
+
+# Extensions configuration
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: "§"
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: trustoverip
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Additional content
+extra:
+  title: 'TSS0001: Trust Registry'
+  lf_url: https://www.linuxfoundation.org/projects
+  toip_url: https://trustoverip.org/
+  toc_title: Table of contents
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/trustoverip
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/trustoverip
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/trust-over-ip-foundation
+
+# Additional stylesheets
+extra_css:
+  - theme/stylesheets/main.css
+  - theme/stylesheets/spec.css
+
+# Additional JavaScript
+extra_javascript:
+  - https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js
+  - theme/javascripts/main.js
