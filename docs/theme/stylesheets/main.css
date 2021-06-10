@@ -1,0 +1,83 @@
+/**
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy
+ * of the License at:
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING, SOFTWARE
+ * DISTRIBUTED UNDER THE LICENSE IS DISTRIBUTED ON AN "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+ * SEE THE LICENSE FOR THE SPECIFIC LANGUAGE GOVERNING PERMISSIONS AND
+ * LIMITATIONS UNDER THE LICENSE.
+ */
+
+/* ----------------------------------------------------------------------------
+ * Colors
+ * ------------------------------------------------------------------------- */
+
+/* Set brand colors */
+:root > * {
+  --md-typeset-a-color: rgba(37, 137, 202, 1);
+  --md-accent-fg-color: rgba(19, 70, 201, 1);
+  --md-accent-fg-color--transparent: rgba(19, 70, 201, 0.1);
+}
+
+/* ----------------------------------------------------------------------------
+ * Overrides
+ * ------------------------------------------------------------------------- */
+
+/* Ensure that header shadow is always shown */
+.md-header {
+  height: auto;
+  box-shadow:
+    0 0 0.2rem rgba(0, 0, 0, .1),
+    0 0.2rem 0.4rem rgba(0, 0, 0, .2);
+}
+
+/* Adjust for higher header */
+.md-header-nav {
+  align-items: center;
+}
+
+/* Adjust for higher header */
+.md-header-nav__title {
+  height: 2.4rem;
+}
+
+/* Make logo bigger */
+.md-header-nav__button.md-logo img,
+.md-header-nav__button.md-logo svg {
+  width: 4.8rem;
+  height: auto;
+}
+
+/* Underline text links */
+.md-content .md-typeset a:not([class]) {
+  border-bottom: .05rem solid currentColor;
+}
+
+/* Align Linux Foundation banner */
+.md-announce img {
+  vertical-align: text-bottom;
+  max-width: 13.5rem;
+}
+
+/* Remove vertical spacing */
+.md-announce__inner {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Ensure link to terms of service is readable */
+.md-footer-copyright__highlight {
+  display: contents;
+  color: var(--md-footer-fg-color--lighter);
+}
+
+/* Limit width of copyright information */
+@media screen and (min-width: 45em) {
+  .md-footer-copyright {
+    width: 50%
+  }
+}
