@@ -1,5 +1,5 @@
 # ToIP  TSS0001>: Trust Registry Specification
-- Authors: [Michael Boyd](mailto:michael@trinsic.id)
+- Authors: [Michael Boyd](mailto:michael@trinsic.id), [Darrell O'Donnell](mailto:darrell.odonnell@continuumloop.com)
 - Status: [PROPOSED](https://trustoverip.github.io/deliverables/process/lifecycle_management/#proposed)
 - Since: YYYY-MM-DD (date you submit your PR)
 - Status Note: (explanation of current status)  
@@ -9,11 +9,11 @@
 
 ## Summary
 
-In most real-world credential exchange scenarios, a credential holder or verifier has the question “How do I know the issuer of this credential is trustworthy?”
+In most real-world credential exchange scenarios, a credential holder or verifier has the question “How do I know the issuer of this credential is trustworthy?”. 
 
 Credential holders may also be uneasy about sharing information with a verifier if trust in the verifier has not been established.
 
-These problems can be solved by having a trusted third party vouch for the trustworthiness of a credential exchange participant.
+These problems can be solved by having a Governance Authority vouch for the trustworthiness of a credential exchange participant.
 
 A trust registry is a list of authorized issuers and verifiers in the ecosystem and the types of credentials and passes they are authorized to issue and verify.
 ## Purpose
