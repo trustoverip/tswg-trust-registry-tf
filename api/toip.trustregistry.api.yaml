@@ -1,0 +1,215 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/darrellodonnell/GHP.TrustRegistry/0.1.0
+info:
+  description: This is a simple Trust Registry 
+  version: "0.1.0"
+  title: Good Health Pass Trust Registry
+  contact:
+    email: darrell.odonnell@continuumloop.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  # - name: admins
+  #   description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+
+paths:
+  # /Governance:
+  #   get:
+  #     tags: 
+  #       - developers
+  #     summary: returns link to governance frameworks that this Trust Registry supports
+  /CheckIssuer:
+    get:
+      tags:
+        - developers
+      summary: Queries for Verifier
+      operationId: validateIssuer
+      description: |
+        Allows querying to determine the status of an Issuer, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema: 
+            type: string
+            format: URI
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true 
+        - in: query
+          name: credentialType
+          required: true
+          schema: 
+            type: string
+        - in: query
+          name: egfURI
+          required: true
+          schema:
+            type: string
+            format: URI
+          allowReserved: true # allow reserved characters per RFC3986
+          description: The URI that points to the GHPC Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentifierResponse'
+        '400':
+          description: bad input parameter
+  /CheckVerifier:
+    get:
+      tags:
+        - developers
+      summary: Queries for Verifier
+      operationId: validateVerifier
+      description: |
+        Allows querying to determine the status of a Verifier, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema: 
+            type: string
+            format: URI
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+        - in: query
+          name: credentialType
+          required: true
+          schema: 
+            type: string
+        - in: query
+          name: egfURI
+          required: true
+          schema:
+            type: string
+            format: URI
+          allowReserved: true # allow reserved characters per RFC3986
+          description: The URI that points to the GHPC Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                
+                $ref: '#/components/schemas/IdentifierResponse'
+        '400':
+          description: bad input parameter
+  /GetOfflineFile:
+    get:
+      tags:
+        - developers
+      summary: Access a full data file that can be used offline.
+      operationId: getOfflineFile
+      description: |
+        Allows querying to determine the status of an Issuer, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
+      responses:
+        '200':
+          description: JSON file array of offline list of Issuers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OfflineCopy'
+        '400':
+          description: bad input parameter
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  schemas:
+    # IdentifierCheck:
+    #   type: object
+    #   required:
+    #     - identifier
+    #     - credentialType
+    #     - governanceFrameworkURI
+    #   properties:
+    #     identifier:
+    #       type: string
+    #       format: URI
+    #       example: 'did:example:123'
+    #     credentialType:
+    #       type: string
+    #     governanceFrameworkURI:
+    #       type: string
+    #       format: URI
+    #       example: 'did:example:456'
+    #     validAt:
+    #       type: string
+    #       format: date-time
+    IdentifierResponse:
+      type: object
+      required:
+        - identifier
+        - credentialType
+        - governanceFrameworkURI
+        - status
+        - validFromDT
+      properties:
+        identifier:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        credentialType:
+          type: string
+        governanceFrameworkURI:
+          type: string
+          format: URI
+          example: 'did:example:456'
+        DIDDocument:
+          type: string
+          format: URI
+          description: 'Provides a URI that resolves to the DID Document for the Identifier.'
+        validFromDT:
+          type: string
+          format: date-time
+          description: 'Indicates that the Identifier status applies at the indicated time. A time in the past indicates when the last status change was recorded in the Trust Registry.'
+        validUntilDT:
+          type: string
+          format: date-time
+          description: 'Indicates the Issuers validity ends/ended at this date and time. A time in the past indicates when the last status change was recorded in the Trust Registry.'
+        status: 
+          type: string
+          enum: [current, expired, terminated, revoked]
+          description: |
+            Provides a current status for entity (issuer or verifier)
+            - current - the entity is currently authorized, as of time of the query.
+            - expired - entity rights have expired.
+            - terminated - entity has voluntarily ceased Issuer role under the specific EGF.
+            - revoked - entity authority under specific EGF was terminated by the governing authority.
+        statusDetail:
+          type: string
+          description: "TODO: FLESH OUT METADATA OBJECT."
+        primaryAuthority:
+          type: boolean
+          description: "FOR CONSIDERATION \nTRUE (default) means that this Trust Registry is the source of truth for this specific EGF. FALSE indicates that this Trust Registry is NOT the source of truth. This may mean that the registry is relaying static or dynamic copies of data from another source Trust Registry. "
+    OfflineCopy:
+      type: object
+      required: 
+        - validAtDT
+        - items
+      properties:
+        validAtDT:
+          type: string
+          format: date-time
+          description: The date-time that the extraction file is current as of. This may be the date-time of the data extraction
+        items:
+          $ref: '#/components/schemas/IdentifierResponse'
+      
+security:
+  - bearerAuth: [] # apply to full API
