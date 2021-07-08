@@ -197,7 +197,7 @@ components:
           description: "TODO: FLESH OUT METADATA OBJECT."
         primaryAuthority:
           type: boolean
-          description: "FOR CONSIDERATION \nTRUE (default) means that this Trust Registry is the source of truth for this specific EGF. FALSE indicates that this Trust Registry is NOT the source of truth. This may mean that the registry is relaying static or dynamic copies of data from another source Trust Registry. "
+          description: "2021-07-08 CONSENSUS is to push to later. TODO remove and document as FUTURE CONSIDERATION. FOR CONSIDERATION \nTRUE (default) means that this Trust Registry is the source of truth for this specific EGF. FALSE indicates that this Trust Registry is NOT the source of truth. This may mean that the registry is relaying static or dynamic copies of data from another source Trust Registry. "
     OfflineCopy:
       type: object
       required: 
