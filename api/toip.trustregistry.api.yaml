@@ -103,6 +103,46 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
+  /CheckTrustRegistry:
+    get:
+      tags:
+        - developers
+      summary: Queries for Verifier
+      operationId: validateIssuer
+      description: |
+        Allows querying to get an answer if this Trust Registry has a trust relationship with another Trust Registry. 
+        If one exists the returned status provides indicator of the trust relationship.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema: 
+            type: string
+            format: URI
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true 
+        - in: query
+          name: credentialType
+          required: true
+          schema: 
+            type: string
+        - in: query
+          name: egfURI
+          required: true
+          schema:
+            type: string
+            format: URI
+          allowReserved: true # allow reserved characters per RFC3986
+          description: The URI that points to the GHPC Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentifierResponse'
+        '400':
+          description: bad input parameter
   /GetOfflineFile:
     get:
       tags:
@@ -195,9 +235,6 @@ components:
         statusDetail:
           type: string
           description: "TODO: FLESH OUT METADATA OBJECT."
-        primaryAuthority:
-          type: boolean
-          description: "2021-07-08 CONSENSUS is to push to later. TODO remove and document as FUTURE CONSIDERATION. FOR CONSIDERATION \nTRUE (default) means that this Trust Registry is the source of truth for this specific EGF. FALSE indicates that this Trust Registry is NOT the source of truth. This may mean that the registry is relaying static or dynamic copies of data from another source Trust Registry. "
     OfflineCopy:
       type: object
       required: 
@@ -213,3 +250,6 @@ components:
       
 security:
   - bearerAuth: [] # apply to full API
+  #ADJUST - remove prescriptive - and add verbiage to support
+  # future use of VC/DIDAuth/etc. 
+  #
