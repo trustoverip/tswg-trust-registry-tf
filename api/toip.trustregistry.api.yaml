@@ -205,6 +205,11 @@ components:
           type: string
           format: URI
           example: 'did:example:123'
+        entityType:
+          type: string
+          enum: [issuer, verifier, trustregistry]
+          description: 'Indicates the entity type that the identifier applies to. 
+          Principally intended for the offline use case to indicate type.'
         credentialType:
           type: string
         governanceFrameworkURI:
