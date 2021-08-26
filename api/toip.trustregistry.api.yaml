@@ -24,7 +24,7 @@ paths:
   #     tags: 
   #       - developers
   #     summary: returns link to governance frameworks that this Trust Registry supports
-  /CheckIssuer:
+  /query/issuer:
     get:
       tags:
         - developers
@@ -63,7 +63,7 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
-  /CheckVerifier:
+  /query/verifier:
     get:
       tags:
         - developers
@@ -103,7 +103,7 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
-  /CheckTrustRegistry:
+  /query/trustregistry:
     get:
       tags:
         - developers
@@ -143,7 +143,7 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
-  /GetOfflineFile:
+  /query/getofflinefile:
     get:
       tags:
         - developers
