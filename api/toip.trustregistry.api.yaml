@@ -2,11 +2,11 @@ openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/darrellodonnell/GHP.TrustRegistry/0.1.0
+    url: https://virtserver.swaggerhub.com/darrellodonnell/ToIP.TrustRegistry/0.1.0
 info:
   description: This is a simple Trust Registry 
   version: "0.1.0"
-  title: Good Health Pass Trust Registry
+  title: Trust Over IP Trust Registry Protocol (RESTful API)
   contact:
     email: darrell.odonnell@continuumloop.com
   license:
@@ -53,7 +53,7 @@ paths:
             type: string
             format: URI
           allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the GHPC Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
       responses:
         '200':
           description: search results matching criteria
@@ -63,6 +63,10 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
+        '401':
+          description: "unauthorized."
+        '404':
+          description: "Issuer not found for specified EGF and credential type."
   /query/verifier:
     get:
       tags:
@@ -92,7 +96,7 @@ paths:
             type: string
             format: URI
           allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the GHPC Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
       responses:
         '200':
           description: search results matching criteria
@@ -103,14 +107,18 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
+        '401':
+          description: "unauthorized."
+        '404':
+          description: "Verifier not found for specified EGF and credential type."
   /query/trustregistry:
     get:
       tags:
         - developers
-      summary: Queries for Verifier
-      operationId: validateIssuer
+      summary: Queries for Trust Registry
+      operationId: validateTrustRegistry
       description: |
-        Allows querying to get an answer if this Trust Registry has a trust relationship with another Trust Registry. 
+        Allows querying to get an answer if this Trust Registry has a trust relationship with the identified Trust Registry. 
         If one exists the returned status provides indicator of the trust relationship.
       parameters:
         - in: query
@@ -133,7 +141,7 @@ paths:
             type: string
             format: URI
           allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the GHPC Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
       responses:
         '200':
           description: search results matching criteria
@@ -143,6 +151,10 @@ paths:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
           description: bad input parameter
+        '401':
+          description: "unauthorized."
+        '404':
+          description: "Trust Registry not found for specified EGF and credential type."
   /query/getofflinefile:
     get:
       tags:
@@ -160,8 +172,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OfflineCopy'
-        '400':
-          description: bad input parameter
+        '401':
+          description: "unauthorized."
 components:
   securitySchemes:
     bearerAuth:
@@ -239,7 +251,7 @@ components:
             - revoked - entity authority under specific EGF was terminated by the governing authority.
         statusDetail:
           type: string
-          description: "TODO: FLESH OUT METADATA OBJECT."
+          description: "Optional free text that expands on the status parameter."
     OfflineCopy:
       type: object
       required: 
