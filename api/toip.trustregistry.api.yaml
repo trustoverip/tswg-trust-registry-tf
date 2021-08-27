@@ -169,9 +169,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/OfflineCopy'
+                $ref: '#/components/schemas/OfflineCopy'
         '401':
           description: "unauthorized."
 components:
@@ -263,7 +261,9 @@ components:
           format: date-time
           description: The date-time that the extraction file is current as of. This may be the date-time of the data extraction
         items:
-          $ref: '#/components/schemas/IdentifierResponse'
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierResponse'
       
 security:
   - bearerAuth: [] # apply to full API
