@@ -37,8 +37,7 @@ paths:
           name: identifier 
           required: true
           schema: 
-            type: string
-            format: URI
+            $ref: '#/components/schemas/Uri'
           description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
           allowReserved: true 
         - in: query
@@ -62,11 +61,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
-          description: bad input parameter
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: "unauthorized."
+          $ref: '#/components/responses/Unauthorized'
         '404':
-          description: "Issuer not found for specified EGF and credential type."
+          $ref: '#/components/responses/NotFound'
   /query/verifier:
     get:
       tags:
@@ -79,9 +78,8 @@ paths:
         - in: query
           name: identifier 
           required: true
-          schema: 
-            type: string
-            format: URI
+          schema:
+            $ref: '#/components/schemas/Uri'
           description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
           allowReserved: true # allow reserved characters per RFC3986
         - in: query
@@ -103,14 +101,13 @@ paths:
           content:
             application/json:
               schema:
-                
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
-          description: bad input parameter
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: "unauthorized."
+          $ref: '#/components/responses/Unauthorized'
         '404':
-          description: "Verifier not found for specified EGF and credential type."
+          $ref: '#/components/responses/NotFound'
   /query/trustregistry:
     get:
       tags:
@@ -125,8 +122,7 @@ paths:
           name: identifier 
           required: true
           schema: 
-            type: string
-            format: URI
+            $ref: '#/components/schemas/Uri'
           description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
           allowReserved: true 
         - in: query
@@ -150,11 +146,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/IdentifierResponse'
         '400':
-          description: bad input parameter
+          $ref: '#/components/responses/BadRequest'
         '401':
-          description: "unauthorized."
+          $ref: '#/components/responses/Unauthorized'
         '404':
-          description: "Trust Registry not found for specified EGF and credential type."
+          $ref: '#/components/responses/NotFound'
   /query/getofflinefile:
     get:
       tags:
@@ -171,7 +167,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OfflineCopy'
         '401':
-          description: "unauthorized."
+          $ref: '#/components/responses/Unauthorized'
 components:
   securitySchemes:
     bearerAuth:
@@ -179,8 +175,56 @@ components:
       scheme: bearer
       bearerFormat: JWT
   responses:
-    UnauthorizedError:
-      description: Access token is missing or invalid
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    NotAcceptable:
+      description: Not Acceptable
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Conflict:
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    ServiceUnavailable:
+      description: Service Unavailable
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    default:
+      description: Generic Error
   schemas:
     # IdentifierCheck:
     #   type: object
@@ -202,6 +246,10 @@ components:
     #     validAt:
     #       type: string
     #       format: date-time
+    Uri:
+      type: string
+      format: uri
+      description: string providing an URI formatted according to IETF RFC 3986.
     IdentifierResponse:
       type: object
       required:
@@ -264,7 +312,33 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/IdentifierResponse'
-      
+    ProblemDetails:
+      description: A Problem Details object (RFC 7807)
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: An absolute URI that identifies the problem type
+          default: about:blank  # kept for backwards-compatibility, type will be mandatory in problem-v2
+        title:
+          type: string
+          description: A short summary of the problem type. Written in English and readable for engineers (usually not suited for non technical stakeholders and not localized).
+          example: Service Unavailable
+        status:
+          type: integer
+          format: int32
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+          minimum: 400
+          maximum: 600
+          exclusiveMaximum: true
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem
+        instance:
+          type: string
+          format: uri
+          description: An absolute URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
 security:
   - bearerAuth: [] # apply to full API
   #ADJUST - remove prescriptive - and add verbiage to support
