@@ -4,3 +4,5 @@ html/
 .idea/vcs.xml
 .gitignore
 .idea/modules.xml
+
+.DS_Store
