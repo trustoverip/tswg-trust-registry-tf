@@ -1,8 +1,8 @@
 openapi: 3.0.0
 servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/darrellodonnell/ToIP.TrustRegistry/0.1.0
+
+  - description: Trust Over IP Trust Registry Protocol
+    url: https://virtserver.swaggerhub.com/NO_PUBLIC_TESTBED/ToIP.TrustRegistry/0.1.0
 info:
   description: This is a simple Trust Registry 
   version: "0.1.0"
@@ -13,22 +13,11 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  # - name: admins
-  #   description: Secured Admin-only calls
   - name: developers
-    description: Operations available to regular developers
-# .../subject/predicate/object
+    description: Operations available to developers
 
-# .../issuer/{EGFURI}/{Type}/{IssuerURI}
-# .../verifier/{EGFURI}/{Type}/{VerifierURI}
-# .../trustregistry/{EGFURI}/{Type}/{OtherEGFURI}
 
 paths:
-  # /Governance:
-  #   get:
-  #     tags: 
-  #       - developers
-  #     summary: returns link to governance frameworks that this Trust Registry supports
   /query/issuer:
     get:
       tags:
@@ -189,26 +178,6 @@ components:
     UnauthorizedError:
       description: Access token is missing or invalid
   schemas:
-    # IdentifierCheck:
-    #   type: object
-    #   required:
-    #     - identifier
-    #     - credentialType
-    #     - governanceFrameworkURI
-    #   properties:
-    #     identifier:
-    #       type: string
-    #       format: URI
-    #       example: 'did:example:123'
-    #     credentialType:
-    #       type: string
-    #     governanceFrameworkURI:
-    #       type: string
-    #       format: URI
-    #       example: 'did:example:456'
-    #     validAt:
-    #       type: string
-    #       format: date-time
     IdentifierResponse:
       type: object
       required:
