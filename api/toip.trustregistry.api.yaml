@@ -17,6 +17,11 @@ tags:
   #   description: Secured Admin-only calls
   - name: developers
     description: Operations available to regular developers
+# .../subject/predicate/object
+
+# .../issuer/{EGFURI}/{Type}/{IssuerURI}
+# .../verifier/{EGFURI}/{Type}/{VerifierURI}
+# .../trustregistry/{EGFURI}/{Type}/{OtherEGFURI}
 
 paths:
   # /Governance:
@@ -224,9 +229,10 @@ components:
           Principally intended for the offline use case to indicate type.'
         credentialType:
           type: string
-        governanceFrameworkURI:
+        egfURI:
           type: string
           format: URI
+          description: 'The Ecosystem Governance Framework (EGF) URI that the result is tied to.'
           example: 'did:example:456'
         DIDDocument:
           type: string
