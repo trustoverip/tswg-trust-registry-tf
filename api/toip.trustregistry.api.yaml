@@ -1,6 +1,5 @@
 openapi: 3.0.0
 servers:
-
   - description: Trust Over IP Trust Registry Protocol
     url: https://virtserver.swaggerhub.com/NO_PUBLIC_TESTBED/ToIP.TrustRegistry/0.1.0
 info:
@@ -194,8 +193,9 @@ components:
         entityType:
           type: string
           enum: [issuer, verifier, trustregistry]
-          description: 'Indicates the entity type that the identifier applies to. 
-          Principally intended for the offline use case to indicate type.'
+          description: | 
+            Indicates the entity type that the identifier applies to. 
+            Principally intended for the offline use case to indicate type.'
         credentialType:
           type: string
         egfURI:
