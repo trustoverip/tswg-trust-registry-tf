@@ -1,0 +1,554 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Trust over IP Foundation specification for a Trust Registry">
+      
+      
+      
+        <link rel="canonical" href="https://trinsic-id.github.io/tswg-trust-registry-tf/ToIP%20Trust%20Registry%20V1%20Specification/">
+      
+      
+        <meta name="author" content="ToIP Trust Registry WG">
+      
+      <link rel="shortcut icon" href="../theme/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-6.1.7">
+    
+    
+      
+        <title>ToIP Trust Registry Protocol V1 Specification - TSS0001: Trust Registry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.19753c6b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.196e0c26.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../theme/stylesheets/main.css">
+    
+      <link rel="stylesheet" href="../theme/stylesheets/spec.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="indigo">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#toip-trust-registry-protocol-v1-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-announce">
+          <div class="md-announce__inner md-grid md-typeset">
+            
+  <a href="https://www.linuxfoundation.org/projects" target="_blank" rel="noopener noreferrer">
+    <img src="../theme/images/banner.png" />
+  </a>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+      
+
+
+
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://trustoverip.org/" title="TSS0001: Trust Registry" class="md-header-nav__button md-logo" aria-label="TSS0001: Trust Registry">
+      
+  <img src="../theme/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            TSS0001: Trust Registry
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              ToIP Trust Registry Protocol V1 Specification
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/trustoverip/tswg-trust-registry-tf" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Trust Registry Specification
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://trinsic-id.github.io/tswg-trust-registry-tf/" title="TSS0001: Trust Registry" class="md-nav__button md-logo" aria-label="TSS0001: Trust Registry">
+      
+  <img src="../theme/images/logo.svg" alt="logo">
+
+    </a>
+    Table of contents
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/trustoverip/tswg-trust-registry-tf" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Trust Registry Specification
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.md" class="md-nav__link">
+      Trust Registry Specification
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../versions/0.1.0/" class="md-nav__link">
+      HTTP API Definition
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#working-draft-deliverable" class="md-nav__link">
+    Working Draft Deliverable
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/trustoverip/tswg-trust-registry-tf/edit/master/docs/ToIP Trust Registry V1 Specification.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="toip-trust-registry-protocol-v1-specification">ToIP Trust Registry Protocol V1 Specification<a class="headerlink" href="#toip-trust-registry-protocol-v1-specification" title="Permanent link">§</a></h1>
+<h2 id="working-draft-deliverable">Working Draft Deliverable<a class="headerlink" href="#working-draft-deliverable" title="Permanent link">§</a></h2>
+<p><em><strong>Editor’s Note:</strong> This is currently a Draft Deliverable of the <a href="https://wiki.trustoverip.org/display/HOME/Trust+Registry+Task+Force">Trust Registry Task Force</a> of the ToIP Technology Stack Working Group. For more on the structure of this Task Force and purpose of this deliverable, please see the <a href="https://wiki.trustoverip.org/display/HOME/Trust+Registry+Task+Force">TRTF home page</a>.</em></p>
+<p><em><strong>Status—2021-09-16:</strong> This deliverable is currently a Community Review Draft. The Trust Registry Task Force meeting is now meeting as part of the Technology Architecture Task Force meetings on Thursdays from 07:00-8:00 PT / 15:00-16:00 UTC and again at 1:00-2:00PM PT / 21:00-22:00 UTC. See the <a href="https://wiki.trustoverip.org/display/HOME/Calendar+of+ToIP+Meetings">ToIP Calendar</a> for Zoom meeting info.</em></p>
+<p><em><strong>How to contribute:</strong> please add any comments or edits in Suggest Mode. The editors will periodically review and resolve new contributions.</em></p>
+<p><em>NOTE: All diagrams developed by contributors should be accompanied by the source.</em></p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">§</a></h1>
+<ul>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#motivations">Motivations</a></li>
+<li><a href="#conceptual-diagrams">Conceptual Diagrams</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#governing-authorities">Governing Authorities</a></li>
+<li><a href="#trust-registry-service-property">Trust Registry Service Property</a></li>
+<li><a href="#trust-registry-protocol">Trust Registry Protocol</a></li>
+<li><a href="#data-model">Data Model</a></li>
+<li><a href="#appendix-a--openapi-specification">APPENDIX A: OpenAPI Specification</a></li>
+</ul>
+<h1 id="contributors">Contributors<a class="headerlink" href="#contributors" title="Permanent link">§</a></h1>
+<p>To comply with the intellectual property rights protections in<a href="https://docs.google.com/document/d/1hJ4YWH_efrYTRvzRI1N9YHwhUOyI_ScrPmI1D9T4_oc/edit?usp=sharing"> the charter of the ToIP Foundation</a> (as required by all Joint Development Foundation projects hosted by the Linux Foundation), all contributors in any capacity to this Draft Deliverable MUST be current members of the ToIP Foundation. The following contributors each certify that they meet this requirement:</p>
+<p><strong>Editors</strong></p>
+<ul>
+<li><a href="https://wiki.trustoverip.org/display/~darrell.odonnell">Darrell O'Donnell</a>, Continuum Loop Inc.</li>
+<li><a href="https://wiki.trustoverip.org/display/~drummondreed">Drummond Reed</a>, Evernym</li>
+</ul>
+<p><strong>Contributors</strong></p>
+<ul>
+<li>Antti Kettunen</li>
+<li>Dan Bachenheimer, Accenture</li>
+<li>Eric Drury, Forth Consulting</li>
+<li>Jim St. Clair, Lumedic</li>
+<li>Sankarshan Mukhopadhyay, Dhiway</li>
+<li>Scott Perry, Scott S. Perry CPA</li>
+<li>Vikas Malhotra, WOPLLI Technologies</li>
+</ul>
+<h1 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">§</a></h1>
+<p>In this document, the key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL", when appearing in ALL CAPITALS, are to be interpreted as described in<a href="https://tools.ietf.org/html/rfc2119"> RFC 2119</a>.</p>
+<p>All other terms in <strong>bold</strong> will be defined in one or more ToIP glossaries in the process specified by the ToIP <a href="https://wiki.trustoverip.org/pages/viewpage.action?pageId=65700">Concepts and Terminology Working Group</a>.</p>
+<h1 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">§</a></h1>
+<p>The purpose of this <strong>ToIP specification</strong> is to define a standard interoperable protocol for interacting with a global web of <strong>peer trust registries</strong>, each of which can answer queries about whether a particular <strong>party</strong> is trusted and authorized to perform a particular <strong>action</strong> in a particular <strong>digital trust ecosystem</strong>, as well as which <strong>peer trust registries</strong> trust each other.</p>
+<h1 id="motivations">Motivations<a class="headerlink" href="#motivations" title="Permanent link">§</a></h1>
+<p>A core role within <strong>Layer 4</strong> of the <strong>ToIP stack</strong> is a <strong>trust registry</strong> (previously known as a <strong>member directory</strong>). This is a network service that enables the <strong>governing authority</strong> for an <strong>ecosystem governance framework (EGF)</strong> to specify what <strong>governed parties</strong> are authorized to perform what <strong>actions</strong> under the EGF. For example:</p>
+<ol>
+<li>Which <strong>issuers</strong> are <strong>authorized</strong> to issue what types of <strong>verifiable credentials</strong>.</li>
+<li>Which <strong>verifiers</strong> are <strong>authorized</strong> to request what types of <strong>verifiable presentations</strong>.</li>
+<li>What other <strong>governing authorities</strong> are trusted to authorize which <strong>parties</strong> can perform what <strong>actions</strong> within their own <strong>trust registries</strong>.</li>
+</ol>
+<p>As with all layers of the <strong>ToIP stack</strong>, the purpose of a <strong>ToIP specification</strong> is to enable the technical interoperability necessary to support <strong>transitive trust</strong> within and between different <strong>trust communities</strong> implementing the <strong>ToIP stack</strong>. In this case, the desired interoperability outcome is a common protocol that works between any number of decentralized <strong>peer trust registries</strong> operated by independent <strong>governing authorities</strong> representing multiple legal and business <strong>jurisdictions</strong>. One specific example of this need is the <strong>digital trust ecosystem</strong> defined by the <a href="https://wiki.trustoverip.org/pages/viewpage.action?pageId=73790">Interoperability Working Group for Good Health Pass</a> (GHP). </p>
+<h1 id="conceptual-diagrams">Conceptual Diagrams<a class="headerlink" href="#conceptual-diagrams" title="Permanent link">§</a></h1>
+<p>Figure 1 represents a conceptual overview of a <strong>digital trust ecosystem</strong> that illustrates the central role of a <strong>trust registry</strong>.</p>
+<p><img alt="Overview diagram of key components of a digital trust ecosystem" src="https://user-images.githubusercontent.com/103072929/162291419-2f769d2e-98c5-409b-af94-4a3f80eb812a.png" /></p>
+<p><strong>Figure 1: Overview diagram of key components of a digital trust ecosystem</strong></p>
+<p>Figure 2 is a conceptual overview of a network of independent <strong>trust registries</strong> representing different <strong>digital trust ecosystems</strong>, all of which can interoperate using the ToIP Trust Registry Protocol to enable <strong>transitive trust</strong> across any two ecosystems.</p>
+<p><img alt="A network of trust registries who are all peers" src="https://user-images.githubusercontent.com/103072929/162291450-0358da28-ac1c-4a4c-b931-97a3d2af2450.png" /></p>
+<p><strong>Figure 2: A network of trust registries who are all peers</strong></p>
+<h1 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">§</a></h1>
+<p>In the first version of this specification (V1), the following <strong>requirements</strong> represent specific limitations on scope. Subsequent versions MAY remove or revise these limitations.</p>
+<p>The ToIP Trust Registry Protocol V1 defined in this specification:</p>
+<ol>
+<li>SHALL support query operations for the current status of a <strong>registry entry</strong>.</li>
+<li>SHALL NOT support query operations for the history of a <strong>registry entry</strong>. <ol>
+<li>This SHOULD be considered for V2.</li>
+</ol>
+</li>
+<li>SHALL NOT support query operations for metadata about a <strong>trust registry</strong>.<ol>
+<li>This SHOULD be considered for V2, including such attributes as:<ol>
+<li>Legal name of <strong>trust registry</strong> service</li>
+<li>Legal name of <strong>trust registry</strong> operator (if different)</li>
+<li>Description</li>
+<li>Language variants supported (for text items returned)</li>
+<li>List of <strong>ecosystem governance frameworks</strong> (EGFs) served (DID, name, supported <strong>credential type URIs</strong>, supported <strong>presentation type URIs</strong>)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>SHALL NOT include support for a DIDComm interface, only a REST interface.<ol>
+<li>A DIDComm interface SHOULD be included in V2.</li>
+</ol>
+</li>
+<li>SHALL NOT support the following capabilities, which should be considered in future versions:<ol>
+<li>Automated <strong>rules</strong> processing.</li>
+<li>API-based operations for <strong>registering parties</strong>.</li>
+<li>An alternative architecture based on <strong>chained credentials</strong> as defined by the ToIP <a href="https://wiki.trustoverip.org/display/HOME/ACDC+%28Authentic+Chained+Data+Container%29+Task+Force">Authentic Chained Data Container</a> (ACDC) specifications.</li>
+</ol>
+</li>
+</ol>
+<h1 id="governing-authorities">Governing Authorities<a class="headerlink" href="#governing-authorities" title="Permanent link">§</a></h1>
+<p><strong>Governing authorities</strong> compliant with this specification:</p>
+<ol>
+<li>MUST have exactly one <strong>primary trust registry</strong>.</li>
+<li>MAY have zero or more <strong>secondary trust registries</strong>. (The <strong>primary trust registry</strong> plus all <strong>secondary trust registries</strong> are collectively the <strong>authorized trust registries</strong>.)</li>
+<li>MUST publish an <strong>EGF</strong> that meets the <strong>requirements</strong> in:<ol>
+<li>This specification.</li>
+<li>The <a href="https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241">ToIP Governance Architecture Specification</a>. Note that this includes the requirement that the <strong>EGF</strong> and all <strong>governed parties</strong> (which includes <strong>authorized issuers</strong> and <strong>authorized verifiers</strong>) must be identified with a <strong>DID</strong>.</li>
+</ol>
+</li>
+<li>MUST publish, in the <strong>DID document</strong> associated with the <strong>DID</strong> identifying its <strong>EGF</strong>, a <strong>service property **specifying the **service endpoint</strong> for its <strong>primary trust registry</strong> that meets the <strong>requirements</strong> in the <em><a href="#trust-registry-service-property">Trust Registry Service Property</a></em> section.</li>
+<li>MUST publish in its <strong>EGF</strong> a list of any other EGFs governing <strong>secondary trust registries.</strong></li>
+<li>MUST specify in the EGF any additional <strong>requirements</strong> for an <strong>authorized trust registry</strong>, including:<ol>
+<li><strong>Information trust requirements</strong>.</li>
+<li>Technical <strong>requirements</strong>.</li>
+<li>Operational <strong>requirements</strong>.</li>
+<li>Legal contracts.</li>
+</ol>
+</li>
+<li>MUST specify in its <strong>EGF</strong> (or in any referenced <strong>credential governance framework</strong>) <strong>requirements</strong> for:<ol>
+<li>An <strong>authorized issuer</strong>, including:<ol>
+<li>The <strong>EGF URI</strong> that MUST be included as a <strong>claim</strong> in any authorized <strong>credential</strong>.</li>
+<li>The <strong>credential type URI</strong> that MUST be used for any authorized <strong>credential</strong>.</li>
+</ol>
+</li>
+<li>An <strong>authorized verifier</strong>, including:<ol>
+<li>The <strong>presentation type URI</strong> that an <strong>authorized verifier</strong> MUST use for any authorized <strong>presentation request</strong>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>SHOULD specify in the <strong>EGF</strong> the following <strong>requirements</strong> for an <strong>authorized trust registry</strong> and any <strong>registered party</strong> (i.e., issuer, verifier, or peer trust registry):<ol>
+<li>The set of <strong>DID methods</strong> authorized for use in the ecosystem.</li>
+<li>The <strong>requirements</strong> to become authorized.</li>
+<li>How to request registration.</li>
+<li>The <strong>requirements</strong> for assignment of each <strong>status value</strong> for a <strong>registry entry</strong>.</li>
+<li>Access control mechanisms.</li>
+<li>How to request access.</li>
+</ol>
+</li>
+</ol>
+<h1 id="trust-registry-service-property">Trust Registry Service Property<a class="headerlink" href="#trust-registry-service-property" title="Permanent link">§</a></h1>
+<p>The <strong>DID document</strong> for the <strong>DID</strong> that identifies an <strong>EGF</strong> compliant with this specification MUST include a service property that meets the <strong>requirements</strong> <a href="https://www.w3.org/TR/did-core/#services">in section 5.4 of the W3C Decentralized Identifiers (DIDs) 1.0 specification</a> plus the following additional <strong>requirements</strong>:</p>
+<ul>
+<li>The value of the <code>type</code> property MUST be <code>TrustRegistry</code>.</li>
+<li>The value of the <code>serviceEndpoint</code> property MUST be exactly one HTTPS URI.</li>
+</ul>
+<h1 id="trust-registry-protocol">Trust Registry Protocol<a class="headerlink" href="#trust-registry-protocol" title="Permanent link">§</a></h1>
+<p>The authoritative technical specifications for the API calls in the ToIP Trust Registry Protocol V1 are specified in Appendix A (OpenAPI YAML file). This section contains a textual description of the <strong>requirements</strong>.</p>
+<p><strong>Trust registries</strong> implementing this protocol:</p>
+<ol>
+<li>MUST maintain the service implementing this protocol at the HTTPS URI specified in the <em><a href="#trust-registry-service-property">Trust Registry Service Property</a></em> section.</li>
+<li>MUST return responses to queries for the <strong>status value</strong> of a <strong>registry entry</strong> that satisfies one or more of the following sets of query parameters:<ol>
+<li><strong>Authorized issuers</strong>: EGF URI, <strong>credential type URI</strong>, issuer URI</li>
+<li><strong>Authorized verifiers</strong>: EGF URI, <strong>presentation type URI</strong>, verifier URI</li>
+<li><strong>Trusted peer registries for authorized issuers:</strong> EGF URI, <strong>credential type URI</strong>, EGF URI</li>
+<li><strong>Trusted peer registries for authorized verifiers:</strong> EGF URI, <strong>presentation type URI</strong>, EGF URI</li>
+</ol>
+</li>
+<li>MUST return responses using the data model specified in the <em><a href="#data-model">Data Model</a></em> section.</li>
+<li>MUST return exactly one of the following <strong>status values</strong> for a <strong>registry entry</strong> satisfying the query parameters:<ol>
+<li><code>Not found</code></li>
+<li><code>Current</code></li>
+<li><code>Expired</code> (not renewed after the previous valid registration period)</li>
+<li><code>Terminated</code> (voluntary termination by the <strong>registered party</strong>)</li>
+<li><code>Revoked</code> (involuntary termination by the <strong>governing authority</strong>)</li>
+</ol>
+</li>
+<li>For queries returning a <strong>status value</strong> other than <code>Not Found</code>, the response MUST return the following values:<ol>
+<li>The parameter values exactly as supplied in the query (so responses can be stateless).</li>
+<li>The <strong>status value</strong>.</li>
+<li>Exactly two <strong>datetime values</strong> conforming to the following requirements:<ol>
+<li>The value labels MUST be:<ol>
+<li><code>AuthorizationStartDate</code></li>
+<li><code>AuthorizationEndDate</code></li>
+</ol>
+</li>
+<li>The values MUST be formatted to comply with <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> in the UTC/Z time zone with no offset.</li>
+<li>The <code>AuthorizationStartDate</code> MUST be the date that the <strong>registered party’s</strong> authorization began.</li>
+<li>The <code>AuthorizationEndDate</code> MUST be either:<ol>
+<li><code>Null</code> for an entry whose <strong>status value</strong> is <code>Current</code> at the time of the query.</li>
+<li>A specific date value if the <strong>registered party’s</strong> <strong>status value</strong> is <code>Expired</code>, <code>Terminated</code> or <code>Revoked.</code></li>
+</ol>
+</li>
+<li>If a <strong>registered party</strong> has multiple entries (representing an authorization history), the most recent value MUST be returned. </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="data-model">Data Model<a class="headerlink" href="#data-model" title="Permanent link">§</a></h1>
+<p>The authoritative technical specifications for the data model for requests and responses in the ToIP Trust Registry Protocol V1 are specified in Appendix A (<a href="https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml">OpenAPI YAML file</a>). This section contains a textual description of the requirements.</p>
+<p><img alt="textual description of the requirements" src="https://user-images.githubusercontent.com/103072929/162291432-c85e9977-de52-4403-94c7-3c7fcbcccc98.png" /></p>
+<h1 id="appendix-a-openapi-specification">APPENDIX A: OpenAPI Specification<a class="headerlink" href="#appendix-a-openapi-specification" title="Permanent link">§</a></h1>
+<p>The OpenAPI YAML file can be found here: <a href="https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml">https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml</a> </p>
+<p>&lt;&lt;TODO: to replace with a tagged commit once we have “locked” things down.&gt;&gt;</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 Joint Development Foundation Projects, LLC, Trust over IP Foundation Series <a href="https://jdfprojects.org/toip/">Terms of Use, Privacy Policy and Cookie Policy</a>. The Joint Development Foundation Projects, LLC is an affiliate of the Linux Foundation.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/trustoverip" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/trustoverip" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/company/trust-over-ip-foundation" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.0ac82a11.min.js"></script>
+      <script src="../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js"></script>
+      
+        <script src="../theme/javascripts/main.js"></script>
+      
+    
+  </body>
+</html>
