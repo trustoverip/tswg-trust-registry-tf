@@ -8,4 +8,4 @@ The purpose of the `ToIP Trust Registry Protocol` is to support the
 participation in a `trust community` and enable `trust tasks`.
 
 A trust registry provides `authoritative` information in relation to a
-`governance framework` needed to `perform trust tasks` and inform `trust decisions`.
+`governance framework` needed to perform `trust tasks` and inform `trust decisions`.
