@@ -1,8 +1,8 @@
 # Trust Registry Task Force
 
 ## Objective
-The objective of the Trust Registry Task Force is to develop the `ToIP Trust Registry Protocol`. 
 
-The purpose of the `ToIP Trust Registry Protocol` is to support the participation in a `trust community` and enable `trust tasks`.
+The objective of the Trust Registry Task Force is to develop the `ToIP Trust Registry Protocol` as a ToIP Layer 3 `trust task` protocol that enables
+standardized interactions with a `trust registry`.
 
-A trust registry facilitates access to `authoritative sources` of information needed to `perform trust tasks` and make `trust decisions` within the context of a `governance framework(s)`.
+The purpose of a `trust registry` is to serve as an `authoritative source` for `governed information` about a `trust community`.
