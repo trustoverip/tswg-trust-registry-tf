@@ -1,0 +1,487 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/darrellodonnell/ToIP.TrustRegistry/0.1.0
+info:
+  description: This is a simple Trust Registry 
+  version: "<2.0.0"
+  title: Trust Over IP Trust Registry Protocol (RESTful API) v2 
+  contact:
+    email: darrell.odonnell@continuumloop.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  # - name: admins
+  #   description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+  - name: new-v2
+    description: proposed concepts.
+paths:
+  # /Governance:
+  #   get:
+  #     tags: 
+  #       - developers
+  #     summary: returns link to governance frameworks that this Trust Registry supports
+  /query/issuer:
+    get:
+      tags:
+        - developers
+      summary: Queries for Verifier
+      operationId: validateIssuer
+      description: |
+        Allows querying to determine the status of an Issuer, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema: 
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true 
+        - in: query
+          name: credentialType
+          required: true
+          schema: 
+            type: string
+        - in: query
+          name: egfURI
+          required: true
+          schema:
+            type: string
+            format: URI
+          allowReserved: true # allow reserved characters per RFC3986
+          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentifierResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /query/verifier:
+    get:
+      tags:
+        - developers
+      summary: Queries for Verifier
+      operationId: validateVerifier
+      description: |
+        Allows querying to determine the status of a Verifier, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+        - in: query
+          name: credentialType
+          required: true
+          schema: 
+            type: string
+        - in: query
+          name: egfURI
+          required: true
+          schema:
+            type: string
+            format: URI
+          allowReserved: true # allow reserved characters per RFC3986
+          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentifierResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  
+  /query/trustregistry:
+    get:
+      tags:
+        - developers
+      summary: Queries for Trust Registry
+      operationId: validateTrustRegistry
+      description: |
+        Allows querying to get an answer if this Trust Registry has a trust relationship with the identified Trust Registry. 
+        If one exists the returned status provides indicator of the trust relationship.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema: 
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true 
+        - in: query
+          name: credentialType
+          required: true
+          schema: 
+            type: string
+        - in: query
+          name: egfURI
+          required: true
+          schema:
+            type: string
+            format: URI
+          allowReserved: true # allow reserved characters per RFC3986
+          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentifierResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /query/getofflinefile:
+    get:
+      tags:
+        - developers
+      summary: Access a full data file that can be used offline.
+      operationId: getOfflineFile
+      description: |
+        Allows querying to determine the status of an Issuer, as identified by their Identifier (unique), 
+        credential type, and EGF that they are operating under.
+      responses:
+        '200':
+          description: JSON file array of offline list of Issuers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfflineCopy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /lookup/didmethods:
+    
+    get:
+      tags:
+        -  new-v2
+      summary: Get a list of DID Methods that are supported by a particular Governance Framework.
+      parameters:
+        - in: query
+          name: egfURI 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lookup/credentialtypes:
+    get:
+      tags:
+        -  new-v2
+      summary: Get a list of credential types for a particular governance framework
+      parameters:
+        - in: query
+          name: egfURI 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lookup/presentationrequests:
+    get:
+      tags:
+        -  new-v2
+      summary: Get a list of Presentation Requests - and (?roles?) that is expected to use it - types 
+        for a particular governance framework.
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lookup/overlays:
+    get:
+      tags:
+        -  new-v2
+      summary: Get a list of Overlays (OCA?) for a particular governance framework
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lookup/resources:
+    get:
+      tags:
+        -  new-v2
+      summary: Get a resource by ID
+      parameters:
+        - in: query
+          name: identifier 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    NotAcceptable:
+      description: Not Acceptable
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Conflict:
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    ServiceUnavailable:
+      description: Service Unavailable
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    default:
+      description: Generic Error
+  schemas:
+    # IdentifierCheck:
+    #   type: object
+    #   required:
+    #     - identifier
+    #     - credentialType
+    #     - governanceFrameworkURI
+    #   properties:
+    #     identifier:
+    #       type: string
+    #       format: URI
+    #       example: 'did:example:123'
+    #     credentialType:
+    #       type: string
+    #     governanceFrameworkURI:
+    #       type: string
+    #       format: URI
+    #       example: 'did:example:456'
+    #     validAt:
+    #       type: string
+    #       format: date-time
+    Uri:
+      type: string
+      format: uri
+      description: string providing an URI formatted according to IETF RFC 3986.
+    PLACEHOLDER:
+      type: string
+      format: uri
+      description: TODO REPLACE.
+    IdentifierResponse:
+      type: object
+      required:
+        - identifier
+        - credentialType
+        - governanceFrameworkURI
+        - status
+        - validFromDT
+      properties:
+        identifier:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        entityType:
+          type: string
+          enum: [issuer, verifier, trustregistry]
+          description: 'Indicates the entity type that the identifier applies to. 
+          Principally intended for the offline use case to indicate type.'
+        credentialType:
+          type: string
+        governanceFrameworkURI:
+          type: string
+          format: URI
+          example: 'did:example:456'
+        DIDDocument:
+          type: string
+          format: URI
+          description: 'Provides a URI that resolves to the DID Document for the Identifier.'
+        validFromDT:
+          type: string
+          format: date-time
+          description: 'Indicates that the Identifier status applies at the indicated time. A time in the past indicates when the last status change was recorded in the Trust Registry.'
+        validUntilDT:
+          type: string
+          format: date-time
+          description: 'Indicates the Issuers validity ends/ended at this date and time. A time in the past indicates when the last status change was recorded in the Trust Registry.'
+        status: 
+          type: string
+          enum: [current, expired, terminated, revoked]
+          description: |
+            Provides a current status for entity (issuer or verifier)
+            - current - the entity is currently authorized, as of time of the query.
+            - expired - entity rights have expired.
+            - terminated - entity has voluntarily ceased Issuer role under the specific EGF.
+            - revoked - entity authority under specific EGF was terminated by the governing authority.
+        statusDetail:
+          type: string
+          description: "Optional free text that expands on the status parameter."
+    OfflineCopy:
+      type: object
+      required: 
+        - validAtDT
+        - items
+      properties:
+        validAtDT:
+          type: string
+          format: date-time
+          description: The date-time that the extraction file is current as of. This may be the date-time of the data extraction
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierResponse'
+    ProblemDetails:
+      description: A Problem Details object (RFC 7807)
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: An absolute URI that identifies the problem type
+          default: about:blank  # kept for backwards-compatibility, type will be mandatory in problem-v2
+        title:
+          type: string
+          description: A short summary of the problem type. Written in English and readable for engineers (usually not suited for non technical stakeholders and not localized).
+          example: Service Unavailable
+        status:
+          type: integer
+          format: int32
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+          minimum: 400
+          maximum: 600
+          exclusiveMaximum: true
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem
+        instance:
+          type: string
+          format: uri
+          description: An absolute URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+security:
+  - bearerAuth: [] # apply to full API
+  #ADJUST - remove prescriptive - and add verbiage to support
+  # future use of VC/DIDAuth/etc. 
+  #
