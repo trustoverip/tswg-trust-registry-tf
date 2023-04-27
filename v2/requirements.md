@@ -80,7 +80,7 @@ non-normative section.
 #### Data Requirements
 
 - Chaining
-  - MUST support trust chaining
+  - SHOULD support trust chaining
 - Data Model
   - MAY be compatible with the DIF Trust Establishment Specification
   - Existing patterns SHOULD leverage from DID Core where possible
