@@ -11,7 +11,7 @@ Person(Integrator, "Integrator", "Ecosystem Developerr")
 System(Bridge, "TR Protocol Bridge")
 System(TRAIN, "TRAIN")
 System(EUTrustedList, "EU Trusted List")
-System(NativeSupport, "LMS w Native Support")
+System(NativeSupport, "SystemX"," w Native TRP Support")
 
 Rel(Integrator, Bridge, "TRP")
 Rel(Bridge, TRAIN,"bridges")
@@ -19,7 +19,6 @@ Rel(Bridge, EUTrustedList, "bridges")
 
 Rel(Integrator, NativeSupport,"TRP")
 
-System(nterface,"Interface - add this DARRELL")
 
 
 @enduml 
