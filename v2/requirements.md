@@ -40,15 +40,14 @@ non-normative section.
 
 ## Requirements:
 
-### Functional Requirements
+#### Functional Requirements
 
-#### Query Operations
-
-- Trust Registry Metadata Queries
-  - Legal name of the trust registry
-  - Legal name of the TR operator
-  - Multi-language support
-  - List ecosystem governance frameworks
+- Query Operations
+  - Trust Registry Metadata Queries
+    - Legal name of the trust registry
+    - Legal name of the TR operator
+    - Multi-language support
+    - List ecosystem governance frameworks
 
 #### Technical Requirements
 
