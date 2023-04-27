@@ -28,3 +28,9 @@ While the TRP may end up having several concrete implementations in the interim 
 Visual Studio Code has a graphical way of generating outputs. They end up in the `/out/{path}' folder. As an example the PlantUML file:
 * `{projectfolder}/v2/logical/highlevel.puml` will render to:
 * `{projectfolder}/out/v2/logical/highlevel/highlevel.svg`
+
+
+
+## TRP Layer 
+
+TODO: Add Interface diagram...
