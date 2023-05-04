@@ -2,6 +2,13 @@
 
 ### Overview:
 
+This document outlines the requirements for **proposals**, not the specification
+themselves. The goal of this document is to give direction to
+contributors/editors of the Trust Reigstry Protocol so that there is a clear set
+of guidelines for evaluation and acceptance.
+
+**STATUS:** WORKING DRAFT
+
 ### Scope:
 
 The proposal scope is specifically limited requirements presented by the "Trust
@@ -48,6 +55,8 @@ non-normative section.
     - Legal name of the TR operator
     - Multi-language support
     - List ecosystem governance frameworks
+  - Authoritative Issuers
+  - Authoritative Verifiers
 
 #### Technical Requirements
 
