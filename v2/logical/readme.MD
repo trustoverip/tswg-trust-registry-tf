@@ -18,6 +18,12 @@ The following diagram is notional at the moment but captures the above:
 
 ![UML Class Diagram](../../out/v2/logical/highlevel/highlevel.svg)
 
+* Consider DIDMethod() -> Methods(type{DID|AID|URI,...})
+* TrustRegistry - Mutual Recognition 
+* Roles -> tags 
+  * interesting more abstract - generically extensible
+  * D: maps to Governed (Key) Roles in EGF template
+  * T: VC "roles" Holders, Verifier, Issuer are really components.
 
 
 ## Open API Specification
@@ -34,3 +40,14 @@ Visual Studio Code has a graphical way of generating outputs. They end up in the
 ## TRP Layer 
 
 TODO: Add Interface diagram...
+
+
+
+REQUIREMENTS
+
+* EGF to TR mapping is the goal. 
+* A TR MUST support 
+  * mapping the KeyRoles identified in the EGF
+
+* A TrustRegistry SHOULD support:
+  * 
