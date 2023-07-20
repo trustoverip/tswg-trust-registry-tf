@@ -26,7 +26,7 @@ Query the Trust Registry to see whether an Entity is authorized in a particular 
 Gather the information needed to interact with this particular Trust Registry
 | method | description |
 | ------ | ----------- |
-|`/lookup/roles` |**List Roles** - list the Roles that are supported by this Trust Registry (under the EGF)|
+|`/lookup/roles` |**List Roles** - list the Roles that are supported by this Trust Registry (under the EGF). A `role` provides and answer to "Is this entity {DID} authorized under this role. The role may be simple (e.g. "access") or more complex (e.g."ca:driverlicense:issuer").
 |`/lookup/resourcetypes` |**List Resource Types** - list the Resource Types that are supported by this Trust Registry (under the EGF)|
 |`/lookup/assurancelevels` |**List Assurance Levels** - simple array of strings used to provide tokens for the LOAs used in this EGF. [Could do by `role`?]|
 |`/lookup/didmethods` |**List Supported DID Methods** - List the supported DID Methods (under the EGF)|
@@ -36,14 +36,17 @@ Gather the information needed to interact with this particular Trust Registry
 
 * DIDs are passed in as a URL parameter. 
 
+## TO DISCUSS
 
+* Roles, as implemented here, are collapsing the Role+Type from TRP v1. In TRPv1 we had an Issuer, (Holder), and Verifier focus as the system was very credential-centric. Where we are doing non-credention things, this changes. 
+  * Does Role+Action help? (no?)
+  * Does Role + null Thing help?
 
 """
 
 tags_metadata = [
   {
-    "name":
-    "lookups",
+    "name": "lookups",
     "description":
     "Operations aimed at providing configuration and lookup information for integrators.",
   },
@@ -69,11 +72,20 @@ didMethodList = ["did:indy", "did:ion", "did:cheqd"]
 resourceTypeList = ["anoncreds:cred-def","anoncreds:schema-def","anoncreds:revocation-list","logo:connection"]
 
 resourceTypes = [
-  "anoncreds:credential_def", "anoncreds:schema_def", "meta:logo",
-  "oca:overlay345", "didcomm:presentationrequest122"
+  "anoncreds:credential_def", 
+  "anoncreds:schema_def", 
+  "meta:logo",
+  "oca:overlay345", 
+  "didcomm:presentationrequest122"
 ]
 
-roleList = ["vc:issuer", "vc:holder", "vc:verifier", "vc:walletapp", "ca:bc:signer"]
+#TODO: are we missing something by combining Role+Thing?
+
+roleList = ["vc:issuer:cadriverlicense", 
+            "vc:verifier:minimumage19", 
+            "vc:walletapp", 
+            "ca:bc:signer",
+            "ca:mdoc:mdl-issuer"]
 
 
 @app.get("/lookup/roles", tags=["lookups"])
@@ -108,6 +120,8 @@ async def read_didmethods():
 # TODO: Data Dump
 
 # TODO: "Roles" better term?
+# Purpose? Authorization?
+
 
 # TODO: Roles - exemplars...
 
