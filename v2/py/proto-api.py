@@ -42,6 +42,37 @@ Gather the information needed to interact with this particular Trust Registry
   * Does Role+Action help? (no?)
   * Does Role + null Thing help?
 
+TODO: Move to Issue in GitHub...
+
+  Is Entity authorized to ISSUE this THING? 
+
+  vs.
+  
+  Is Entity authorized under role of "Canadian Driver License Issuer"? 
+  - we lose some "data" here - what are the technical pieces (e.g. Issuer of CredentialType)
+  - 
+
+
+  TERMINOLOGY - Authorization vs. Role?
+
+  Does this Entity have the role of "Canadian Driver License Issuer"? 
+
+  
+  What TR am I talking to - and why? Out-of-scope 
+
+  Does simplifying/collapsing the Issuer+What pattern into a single thing help or hurt?
+
+  EU Trust List - has concept of:
+  - Authorized Timestamp provider.
+  - 
+  
+Registry-of-Registries -> 
+
+* TODO: Discuss Traversal/Discovery
+* TODO: Add "Registered in ___" as MetaData.
+
+You go to a TR to Confirm things...
+
 """
 
 tags_metadata = [
