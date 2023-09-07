@@ -135,7 +135,7 @@ TrustRegistry --> Metadata
 
 DIDMethodList o-- "1...n" DIDMethod 
 AuthorizationList o-- "0...n" Authorization
-ResourceTypeList o-- "0...n" ResourceType
+' ResourceTypeList o-- "0...n" ResourceType
 
 
 '' High-Level lots of specific classes
