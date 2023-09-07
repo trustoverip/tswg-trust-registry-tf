@@ -224,33 +224,33 @@ paths:
   #       #   $ref: '#/components/responses/Unauthorized'
   #       # '404':
   #       #   $ref: '#/components/responses/NotFound'
-  /lookup/resourcetypes/:
-    get:
-      tags:
-        -  new-v2-lookup
-      summary: Get a list of Presentation Requests - and (?roles?) that is expected to use it - types 
-        for a particular governance framework.
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PLACEHOLDER'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
+  # /lookup/resourcetypes/:
+  #   get:
+  #     tags:
+  #       -  new-v2-lookup
+  #     summary: Get a list of Presentation Requests - and (?roles?) that is expected to use it - types 
+  #       for a particular governance framework.
+  #     parameters:
+  #       - in: query
+  #         name: identifier 
+  #         required: true
+  #         schema:
+  #           $ref: '#/components/schemas/Uri'
+  #         description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+  #         allowReserved: true # allow reserved characters per RFC3986
+  #     responses:
+  #       '200':
+  #         description: search results matching criteria
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/PLACEHOLDER'
+  #       # '400':
+  #       #   $ref: '#/components/responses/BadRequest'
+  #       # '401':
+  #       #   $ref: '#/components/responses/Unauthorized'
+  #       # '404':
+  #       #   $ref: '#/components/responses/NotFound'
   /lookup/assurancelevels:
     
     get:
@@ -280,32 +280,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
-  /lookup/overlays/:
-    get:
-      tags:
-        -  new-v2-lookup
-      summary: Get a list of Overlays (OCA?) for a particular governance framework
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PLACEHOLDER'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
   /lookup/resources:
     get:
       tags:
