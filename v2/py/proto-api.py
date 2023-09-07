@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+from fastapi import Body, FastAPI  
+from typing import Annotated 
+from pydantic import Field, BaseModel
 import uvicorn
 
 api_description = """
@@ -99,6 +101,9 @@ app = FastAPI(title="TrustRegistryProtocol",
 
 assuranceLevelList = ["TODO LOAs"]
 metadata = ["TODO-metadata"]
+
+
+
 didMethodList = ["did:indy", "did:ion", "did:cheqd"]
 resourceTypeList = ["anoncreds:cred-def","anoncreds:schema-def","anoncreds:revocation-list","logo:connection"]
 
@@ -119,10 +124,24 @@ roleList = ["vc:issuer:cadriverlicense",
             "ca:mdoc:mdl-issuer"]
 
 
+loaList = ["ca:credloa2",
+           "ca:credloa3"]
+
 @app.get("/lookup/roles", tags=["lookups"])
 async def read_roles():
   return roleList
 
+
+
+
+# testDataType = Annotated[str, Field(default = None, 
+#                                     title="the title",
+#                                     description="the description" )]
+
+
+# @app.get("/test")
+# async def read_test():
+#   return testDatatype
 
 @app.get("/lookup/metadata", tags=["lookups"])
 async def read_metadata():
@@ -132,6 +151,7 @@ async def read_metadata():
 @app.get("/lookup/assurancelevels", tags=["lookups"])
 async def read_assurancelevels():
   return assuranceLevelList
+
 
 
 @app.get("/lookup/resourcetypes", tags=["lookups"])
@@ -171,7 +191,11 @@ async def read_recognizedregistry(did):
 async def read_resource(did):
   return {"todo-resourcegetter": did}
 
-
+# TODO: EU Trusted list - 
+# TODO: TRAIN thoughts - 
 
 
 uvicorn.run(app, port=8080, host="0.0.0.0")
+
+
+# 

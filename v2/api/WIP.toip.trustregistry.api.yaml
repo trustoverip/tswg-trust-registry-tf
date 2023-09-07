@@ -17,214 +17,19 @@ tags:
   #   description: Secured Admin-only calls
   - name: developers
     description: Operations available to regular developers
-  - name: new-v2
-    description: proposed concepts.
+  - name: new-v2-query
+    description: QUERY centric operations.
+  - name: new-v2-lookup
+    description: LOOKUP centric operations.
 paths:
   # /Governance:
   #   get:
   #     tags: 
   #       - developers
   #     summary: returns link to governance frameworks that this Trust Registry supports
-  /query/issuer/:
-    get:
-      tags:
-        - developers
-      summary: Queries for Verifier
-      operationId: validateIssuer
-      description: |
-        Allows querying to determine the status of an Issuer, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema: 
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true 
-        - in: query
-          name: credentialType
-          required: true
-          schema: 
-            type: string
-        - in: query
-          name: egfURI
-          required: true
-          schema:
-            type: string
-            format: URI
-          allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentifierResponse'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
-  /query/member/:
-    get:
-      tags:
-        -  new-v2
-      summary: Query to see if DID is a member of the GF and in what role.
-      description: |
-        Allows querying a member, as identified by their DID (unique) nd EGF that they are operating under. It will returned
-        a status and membership role (see /lookups/roles).
-      
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PLACEHOLDER'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
-  /query/verifier:
-    get:
-      tags:
-        - developers
-      summary: Queries for Verifier
-      operationId: validateVerifier
-      description: |
-        Allows querying to determine the status of a Verifier, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-        - in: query
-          name: credentialType
-          required: true
-          schema: 
-            type: string
-        - in: query
-          name: egfURI
-          required: true
-          schema:
-            type: string
-            format: URI
-          allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentifierResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /query/didroles:
-    get:
-      tags:
-        - developers
-      summary: Queries roles associated to DID
-      operationId: validateVerifier
-      description: |
-        Allows querying to determine the status of a Verifier, as identified by their Identifier (unique), credential type, and EGF that they are operating under.
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-        - in: query
-          name: credentialType
-          required: true
-          schema: 
-            type: string
-        - in: query
-          name: egfURI
-          required: true
-          schema:
-            type: string
-            format: URI
-          allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentifierResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /query/trustregistry/:
-    get:
-      tags:
-        - developers
-      summary: Queries for Trust Registry
-      operationId: validateTrustRegistry
-      description: |
-        Allows querying to get an answer if this Trust Registry has a trust relationship with the identified Trust Registry. 
-        If one exists the returned status provides indicator of the trust relationship.
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema: 
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true 
-        - in: query
-          name: credentialType
-          required: true
-          schema: 
-            type: string
-        - in: query
-          name: egfURI
-          required: true
-          schema:
-            type: string
-            format: URI
-          allowReserved: true # allow reserved characters per RFC3986
-          description: The URI that points to the Ecosystem Governance Framework. Allows reserved characters per RFC3986. Do not escape the URI.
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentifierResponse'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
-  /query/getofflinefile:
+
+ 
+  /v1/query/getofflinefile:
     get:
       tags:
         - developers
@@ -242,11 +47,133 @@ paths:
                 $ref: '#/components/schemas/OfflineCopy'
         # '401':
         #   $ref: '#/components/responses/Unauthorized'
+  /query/entity-has-right:  # TODO: decide path or query for parameters...
+    get:
+      tags:
+        -  new-v2-query
+      summary: Get Answer about a particular Right that an Entity has.
+      parameters:
+        - in: query
+          name: entitydid 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+        - in: query
+          name: right 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The identifier of the RIGHT that is being queried.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /query/recognized-registry:  # TODO: decide URI or Identifier (DID) for other TRs
+    get:
+      tags:
+        -  new-v2-query
+      summary: Query this Trust Registry about its recognition of another Trust Registry
+      parameters:
+        - in: query
+          name: trustregistryidentifier 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistryQueryType'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /query/resource:  # TODO: decide path or query for parameters...
+    get:
+      tags:
+        -  new-v2-query
+      summary: Get resource data indicated by DID.
+      parameters:
+        - in: query
+          name: entitydid 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+        
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lookup/rights:
+    
+    get:
+      tags:
+        -  new-v2-lookup
+      summary: Get a list of Rights that are used in this Trust Registry.
+      parameters:
+        - in: query
+          name: egfURI 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /lookup/didmethods:
     
     get:
       tags:
-        -  new-v2
+        -  new-v2-lookup
       summary: Get a list of DID Methods that are supported by a particular Governance Framework.
       parameters:
         - in: query
@@ -271,36 +198,36 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
-  /lookup/credentialtypes/:
+  # /lookup/credentialtypes/:
+  #   get:
+  #     tags:
+  #       -  new-v2
+  #     summary: Get a list of credential types for a particular governance framework
+  #     parameters:
+  #       - in: query
+  #         name: egfURI 
+  #         required: true
+  #         schema:
+  #           $ref: '#/components/schemas/Uri'
+  #         description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+  #         allowReserved: true # allow reserved characters per RFC3986
+  #     responses:
+  #       '200':
+  #         description: search results matching criteria
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/PLACEHOLDER'
+  #       # '400':
+  #       #   $ref: '#/components/responses/BadRequest'
+  #       # '401':
+  #       #   $ref: '#/components/responses/Unauthorized'
+  #       # '404':
+  #       #   $ref: '#/components/responses/NotFound'
+  /lookup/resourcetypes/:
     get:
       tags:
-        -  new-v2
-      summary: Get a list of credential types for a particular governance framework
-      parameters:
-        - in: query
-          name: egfURI 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PLACEHOLDER'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
-  /lookup/presentationrequests/:
-    get:
-      tags:
-        -  new-v2
+        -  new-v2-lookup
       summary: Get a list of Presentation Requests - and (?roles?) that is expected to use it - types 
         for a particular governance framework.
       parameters:
@@ -324,10 +251,39 @@ paths:
         #   $ref: '#/components/responses/Unauthorized'
         # '404':
         #   $ref: '#/components/responses/NotFound'
+  /lookup/assurancelevels:
+    
+    get:
+      tags:
+        -  new-v2-lookup
+      summary: Get a list of the assurance levels that are in use by this Trust Registry (and its governing EGF).
+      parameters:
+        - in: query
+          name: egfURI 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /lookup/overlays/:
     get:
       tags:
-        -  new-v2
+        -  new-v2-lookup
       summary: Get a list of Overlays (OCA?) for a particular governance framework
       parameters:
         - in: query
@@ -350,39 +306,10 @@ paths:
         #   $ref: '#/components/responses/Unauthorized'
         # '404':
         #   $ref: '#/components/responses/NotFound'
-  /lookup/roles/:
-    get:
-      tags:
-        -  new-v2
-      summary: Get list of Roles for a particular EGF.
-      description: |
-        Roles are defined in a governance framework. The Trust Registry will return the data value, 
-        not multi-lingual descriptions (see. the EGF for that).
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of the EGF being queried. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PLACEHOLDER'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
   /lookup/resources:
     get:
       tags:
-        -  new-v2
+        -  new-v2-lookup
       summary: Get a resource by ID
       parameters:
         - in: query
@@ -491,6 +418,98 @@ components:
       type: string
       format: uri
       description: TODO REPLACE.
+    ResourceType:
+      type: object
+      description: Resource data as identified by identifier. 
+      required: 
+        - identifier
+        - lastupdated
+        - datatype
+      properties:
+        identifier:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        lastupdated:
+          type: string
+          format: date-time #RFC 3339, Section 5.6
+        datatype:
+          description: |
+            The `kind` of resource (e.g. credential-definition, schema-definition, revocation-registry). intended
+            to be used by recipient for processing of the data payload. 
+          type: string
+        payloadJSON:
+          type: object 
+          description: JSON object 
+
+    MetadataType:
+      type: object
+      required: 
+        - lastupdated
+      properties:
+        lastupdated:
+          type: string
+          format: date-time #RFC 3339, Section 5.6
+        languages: # TODO: create Object with default-language
+          type: array
+          description: language codes (RFC 4646 - https://datatracker.ietf.org/doc/html/rfc4646)
+          items: 
+            type: string
+          example: 
+            - "en"
+            - "en-CA"
+            - "fr-CA"
+    AssuranceLevel: 
+      type: object
+      description: |
+        Creates assurance level as a top-level/first-class-citizen of a Trust Registry.
+      required:
+        - identifier
+        - name
+        - description
+      properties:
+        identifier:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        name: 
+          type: string
+          example: "LOA2"
+        description:
+          type: string
+          example: "Level of Assurance 2 - see EGF for definition, terms, obligations, liabilities, and indemnity"
+    RegistryQueryType:
+      type: object
+      description: |
+        Data structure for basic Trust Registry indication of what the queried TR will state about another TR.
+      required: 
+        - identifier
+        - name
+      properties:
+        identifier:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        name: 
+          type: string
+          example: "Professional Engineers Ontario"
+        description:
+          type: string
+          example: "Established on June 14, 1922, Professional Engineers Ontario (PEO) is the licensing and regulating body for professional engineering in the province."
+        peerType:
+          type: string
+          enum:
+            - peer
+            - superior 
+            - subordinate  
+            - metaregistry
+          description: >
+            Relationship types - how does the TR that is being queried consider the other TR.
+              * peer - registy is recognized as a peer under another jurisdiction or governance mechanism.
+              * superior - registry is above this TR in a hierarchy.
+              * subordinate - registry is subordinate to this TR in a hierarchy.
+              * metaregistry - registry being queried is considered (by this TR) to be a metaregistry (aka registry of registries)
+          
     IdentifierResponse:
       type: object
       required:

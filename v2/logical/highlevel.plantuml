@@ -11,10 +11,19 @@ package EGF {
 ' object Error 
 class TrustRegistry {
     EGFURI
+    RegistryMetadata: Metadata
+}
+
+class RegistryOfRegistries {
+    FindDID()
+    FindRegistry()
+    ListRegistries()
+
+
 }
 
 class Query {
-    AuthorizedUnderRole(entityDID,role)
+    EntityHasRight(entity, right)
     RecognizedRegistry(registryDID)
     GetResource(resourceDID)  
 }
@@ -31,10 +40,13 @@ class Lookup {
 }
 
 class Metadata {
+    EGFURI: URI ' (duplicated above)
     TrustRegistryName: string
     RawAPIEndpoint: URL 
-    DiscoveryAPI: URL 
-    Profiles()
+    AuthorityClaim: string 
+    lastUpdated: datetime 
+    
+
     Languages() 
 }
 
@@ -44,12 +56,23 @@ EGF "1" -- "1" TrustRegistry
 
 TrustRegistry <|-- Query
 TrustRegistry <|-- Lookup 
-TrustRegistry <|-- Metadata 
+
 
 package QueryDataObjects {
     object AuthorizationResponse 
-    object RegistryRecognitionResponse 
-    object Resource 
+    object RegistryRecognitionResponse {
+        identifier: DID
+        name: string
+        peerType: enum
+        description: string
+
+    }
+    object Resource {
+        identifier: URI
+        lastUpdated: datetime
+        datatype: string
+        payloadJSON: JSON
+    }
     
 }
 package Lookups {
@@ -115,6 +138,8 @@ package Lookups {
 
 
 Query::GetResource --> Resource
+Query::RecognizedRegistry --> RegistryRecognitionResponse
+
 
 Lookup::DIDMethods --> DIDMethodList
 Lookup::Roles --> RoleList
@@ -122,8 +147,8 @@ Lookup::Roles --> RoleList
 Lookup::ResourceTypes --> ResourceTypeList  
 Lookup::AssuranceLevels --> AssuranceLevelsList
 
-Metadata::Profiles --> ProfileList
-ProfileList o-- "0...n" Profile
+' METADATA related objects
+TrustRegistry --> Metadata 
 
 
 
