@@ -4,8 +4,9 @@ servers:
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/darrellodonnell/ToIP.TrustRegistry/0.1.0
 info:
-  description: This is a simple Trust Registry 
-  version: "<2.0.0"
+  description: |
+    TODO: update description
+  version: "0.2.0"
   title: Trust Over IP Trust Registry Protocol (RESTful API) v2 
   contact:
     email: darrell.odonnell@continuumloop.com
@@ -47,11 +48,11 @@ paths:
                 $ref: '#/components/schemas/OfflineCopy'
         # '401':
         #   $ref: '#/components/responses/Unauthorized'
-  /query/entity-has-right:  # TODO: decide path or query for parameters...
+  /query/entity-authorization:  # TODO: decide path or query for parameters...
     get:
       tags:
         -  new-v2-query
-      summary: Get Answer about a particular Right that an Entity has.
+      summary: Determine whether an Entity has a particular Authorization.
       parameters:
         - in: query
           name: entitydid 
@@ -68,7 +69,7 @@ paths:
           schema:
             $ref: '#/components/schemas/Uri'
           description: |
-            The identifier of the RIGHT that is being queried.
+            The identifier of the Authorization that is being queried.
           allowReserved: true # allow reserved characters per RFC3986
       responses:
         '200':
@@ -280,32 +281,32 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
-  /lookup/resources:
-    get:
-      tags:
-        -  new-v2-lookup
-      summary: Get a resource by ID
-      parameters:
-        - in: query
-          name: identifier 
-          required: true
-          schema:
-            $ref: '#/components/schemas/Uri'
-          description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
-          allowReserved: true # allow reserved characters per RFC3986
-      responses:
-        '200':
-          description: search results matching criteria
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PLACEHOLDER'
-        # '400':
-        #   $ref: '#/components/responses/BadRequest'
-        # '401':
-        #   $ref: '#/components/responses/Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/NotFound'
+  # /lookup/resources:
+  #   get:
+  #     tags:
+  #       -  new-v2-lookup
+  #     summary: Get a resource by ID
+  #     parameters:
+  #       - in: query
+  #         name: identifier 
+  #         required: true
+  #         schema:
+  #           $ref: '#/components/schemas/Uri'
+  #         description: The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. Do not escape the URI.
+  #         allowReserved: true # allow reserved characters per RFC3986
+  #     responses:
+  #       '200':
+  #         description: search results matching criteria
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/PLACEHOLDER'
+  #       # '400':
+  #       #   $ref: '#/components/responses/BadRequest'
+  #       # '401':
+  #       #   $ref: '#/components/responses/Unauthorized'
+  #       # '404':
+  #       #   $ref: '#/components/responses/NotFound'
 components:
   securitySchemes:
     bearerAuth:
@@ -392,6 +393,21 @@ components:
       type: string
       format: uri
       description: TODO REPLACE.
+    AuthorizationType:
+      type: object 
+      required:
+        - identifier 
+        - simplename
+        - description
+      properties:
+        identifier:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        simplename: 
+          type: string
+        description:
+          type: string
     ResourceType:
       type: object
       description: Resource data as identified by identifier. 
@@ -500,8 +516,7 @@ components:
         entityType:
           type: string
           enum: [issuer, verifier, trustregistry]
-          description: 'Indicates the entity type that the identifier applies to. 
-          Principally intended for the offline use case to indicate type.'
+          description: 'Indicates the entity type that the identifier applies to. Principally intended for the offline use case to indicate type.'
         credentialType:
           type: string
         governanceFrameworkURI:

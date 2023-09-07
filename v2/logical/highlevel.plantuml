@@ -23,14 +23,14 @@ class RegistryOfRegistries {
 }
 
 class Query {
-    EntityHasRight(entity, right)
+    EntityAuthorization(entity, right)
     RecognizedRegistry(registryDID)
     GetResource(resourceDID)  
 }
 
 class Lookup {
     DIDMethods() 
-    Roles()
+    Authorizations()
     ResourceTypes()
     ' CredentialTypes()
     ' CredentialSchemas()
@@ -78,8 +78,8 @@ package QueryDataObjects {
 package Lookups {
     package LookupLists {
         object DIDMethodList
-        object RoleList
-        object ResourceTypeList
+        object AuthorizationList
+        ' object ResourceTypeList
         
         object AssuranceLevelsList
         ' object CredentialTypeList 
@@ -95,34 +95,15 @@ package Lookups {
         object DIDMethod {
             didmethod: string 
         }
-        object Role {
-            rolename: string 
+        object Authorization {
+            authorization: string 
         }
-        ' object CredentialType {
-        '     typeDID: string
-        '     credentialSchema: CredentialSchema
-        '     ?JustResources?: question
 
+        ' object ResourceType {
+        '     resourceTypeIdentifier: DID
+        '     resourceTypeString: string
+        '     description: string 
         ' }
-        ' object CredentialSchema {
-        '     identifier: string
-        '     ?JustResources?: question
-        ' }
-        ' object PresentationRequest{
-        '     identifier: string
-        '     ?JustResources?: question
-
-        ' }
-        ' object Overlay {
-        '     overlayIdentifier: DID
-        '     overlayPayload: string 
-        '     ?JustResources?: question
-        ' }
-        object ResourceType {
-            resourceTypeIdentifier: DID
-            resourceTypeString: string
-            description: string 
-        }
         object AssuranceLevel {
             AssuranceIdentifier: string
             AssuranceName: string
@@ -136,15 +117,15 @@ package Lookups {
 
 
 
-
+Query::EntityAuthorization --> AuthorizationResponse
 Query::GetResource --> Resource
 Query::RecognizedRegistry --> RegistryRecognitionResponse
 
 
 Lookup::DIDMethods --> DIDMethodList
-Lookup::Roles --> RoleList
+Lookup::Authorizations --> AuthorizationList
 
-Lookup::ResourceTypes --> ResourceTypeList  
+' Lookup::ResourceTypes --> ResourceTypeList  
 Lookup::AssuranceLevels --> AssuranceLevelsList
 
 ' METADATA related objects
@@ -153,7 +134,7 @@ TrustRegistry --> Metadata
 
 
 DIDMethodList o-- "1...n" DIDMethod 
-RoleList o-- "0...n" Role
+AuthorizationList o-- "0...n" Authorization
 ResourceTypeList o-- "0...n" ResourceType
 
 
