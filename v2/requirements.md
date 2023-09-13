@@ -16,8 +16,6 @@
 
 _**Editor’s Note:** This is currently a Draft Deliverable of the [Trust Registry Task Force](https://wiki.trustoverip.org/display/HOME/Trust+Registry+Task+Force) of the ToIP Technology Stack Working Group. For more on the structure of this Task Force and purpose of this deliverable, please see the [TRTF home page](https://wiki.trustoverip.org/display/HOME/Trust+Registry+Task+Force)._
 
-_**Status—2021-09-16:** This deliverable is currently a Community Review Draft. The Trust Registry Task Force meeting is now meeting as part of the Technology Architecture Task Force meetings on Thursdays from 07:00-8:00 PT / 15:00-16:00 UTC and again at 1:00-2:00PM PT / 21:00-22:00 UTC. See the [ToIP Calendar](https://wiki.trustoverip.org/display/HOME/Calendar+of+ToIP+Meetings) for Zoom meeting info._
-
 _**How to contribute:** please add any comments or edits in Suggest Mode. The editors will periodically review and resolve new contributions._
 
 _NOTE: All diagrams developed by contributors should be accompanied by the source._
@@ -43,21 +41,7 @@ To comply with the intellectual property rights protections in[ the charter of t
 **Editors**
 
 
-
-* [Darrell O'Donnell](https://wiki.trustoverip.org/display/~darrell.odonnell), Continuum Loop Inc.
-* [Drummond Reed](https://wiki.trustoverip.org/display/~drummondreed), Evernym
-
 **Contributors**
-
-
-
-* Antti Kettunen
-* Dan Bachenheimer, Accenture
-* Eric Drury, Forth Consulting
-* Jim St. Clair, Lumedic
-* Sankarshan Mukhopadhyay, Dhiway
-* Scott Perry, Scott S. Perry CPA
-* Vikas Malhotra, WOPLLI Technologies
 
 
 # Terminology
@@ -69,75 +53,18 @@ All other terms in **bold** will be defined in one or more ToIP glossaries in th
 
 # Purpose
 
-The purpose of this **ToIP specification** is to define a standard interoperable protocol for interacting with a global web of **peer trust registries**, each of which can answer queries about whether a particular **party** is trusted and authorized to perform a particular **action** in a particular **digital trust ecosystem**, as well as which **peer trust registries** trust each other.
-
 
 # Motivations
-
-A core role within **Layer 4** of the **ToIP stack** is a **trust registry** (previously known as a **member directory**). This is a network service that enables the **governing authority** for an **ecosystem governance framework (EGF)** to specify what **governed parties** are authorized to perform what **actions** under the EGF. For example:
-
-
-
-1. Which **issuers** are **authorized** to issue what types of **verifiable credentials**.
-2. Which **verifiers** are **authorized** to request what types of **verifiable presentations**.
-3. What other **governing authorities** are trusted to authorize which **parties** can perform what **actions** within their own **trust registries**.
-
-As with all layers of the **ToIP stack**, the purpose of a **ToIP specification** is to enable the technical interoperability necessary to support **transitive trust** within and between different **trust communities** implementing the **ToIP stack**. In this case, the desired interoperability outcome is a common protocol that works between any number of decentralized **peer trust registries** operated by independent **governing authorities** representing multiple legal and business **jurisdictions**. One specific example of this need is the **digital trust ecosystem** defined by the [Interoperability Working Group for Good Health Pass](https://wiki.trustoverip.org/pages/viewpage.action?pageId=73790) (GHP). 
 
 
 # Conceptual Diagrams
 
-Figure 1 represents a conceptual overview of a **digital trust ecosystem** that illustrates the central role of a **trust registry**.
-
-
-
-![Overview diagram of key components of a digital trust ecosystem](https://user-images.githubusercontent.com/103072929/162291419-2f769d2e-98c5-409b-af94-4a3f80eb812a.png)
-
-
-**Figure 1: Overview diagram of key components of a digital trust ecosystem**
-
-
-
-Figure 2 is a conceptual overview of a network of independent **trust registries** representing different **digital trust ecosystems**, all of which can interoperate using the ToIP Trust Registry Protocol to enable **transitive trust** across any two ecosystems.
-
-
-![A network of trust registries who are all peers](https://user-images.githubusercontent.com/103072929/162291450-0358da28-ac1c-4a4c-b931-97a3d2af2450.png)
-
-
-**Figure 2: A network of trust registries who are all peers**
-
-
 # Scope
-
-In the first version of this specification (V1), the following **requirements** represent specific limitations on scope. Subsequent versions MAY remove or revise these limitations.
-
-The ToIP Trust Registry Protocol V1 defined in this specification:
-
-
-
-1. SHALL support query operations for the current status of a **registry entry**.
-2. SHALL NOT support query operations for the history of a **registry entry**. 
-    1. This SHOULD be considered for V2.
-3. SHALL NOT support query operations for metadata about a **trust registry**.
-    2. This SHOULD be considered for V2, including such attributes as:
-        1. Legal name of **trust registry** service
-        2. Legal name of **trust registry** operator (if different)
-        3. Description
-        4. Language variants supported (for text items returned)
-        5. List of **ecosystem governance frameworks** (EGFs) served (DID, name, supported **credential type URIs**, supported **presentation type URIs**)
-4. SHALL NOT include support for a DIDComm interface, only a REST interface.
-    3. A DIDComm interface SHOULD be included in V2.
-5. SHALL NOT support the following capabilities, which should be considered in future versions:
-    4. Automated **rules** processing.
-    5. API-based operations for **registering parties**.
-    6. An alternative architecture based on **chained credentials** as defined by the ToIP [Authentic Chained Data Container](https://wiki.trustoverip.org/display/HOME/ACDC+%28Authentic+Chained+Data+Container%29+Task+Force) (ACDC) specifications.
 
 
 # Governing Authorities
 
 **Governing authorities** compliant with this specification:
-
-
 
 1. MUST have exactly one **primary trust registry**.
 2. MAY have zero or more **secondary trust registries**. (The **primary trust registry** plus all **secondary trust registries** are collectively the **authorized trust registries**.)
@@ -181,8 +108,6 @@ The **DID document** for the **DID** that identifies an **EGF** compliant with t
 The authoritative technical specifications for the API calls in the ToIP Trust Registry Protocol V1 are specified in Appendix A (OpenAPI YAML file). This section contains a textual description of the **requirements**.
 
 **Trust registries** implementing this protocol:
-
-
 
 1. MUST maintain the service implementing this protocol at the HTTPS URI specified in the _[Trust Registry Service Property](#trust-registry-service-property)_ section.
 2. MUST return responses to queries for the **status value** of a **registry entry** that satisfies one or more of the following sets of query parameters:
