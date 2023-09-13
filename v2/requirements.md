@@ -143,8 +143,15 @@ The authoritative technical specifications for the data model for requests and r
 ![textual description of the requirements](https://user-images.githubusercontent.com/103072929/162291432-c85e9977-de52-4403-94c7-3c7fcbcccc98.png)
 
 
-# APPENDIX A: OpenAPI Specification
+# Appendix A: Consolidated Requirements
 
-The OpenAPI YAML file can be found here: [https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml](https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml) 
+For ease of reference, the following table consolidates all normative requirements in this specification. Each requirement is linked to the section in which it appears.
 
-<&lt;TODO: to replace with a tagged commit once we have “locked” things down.>>
+| Req # | Description | Section |
+|---------|--------------|-----------|
+| | **General ToIP Architecture Requirements**| |
+| A.1 | MUST have exactly one **primary trust registry**. | [LINK] |
+|A.2 | MAY have zero or more **secondary trust registries**. (The **primary trust registry** plus all **secondary trust registries** are collectively the **authorized trust registries**.) | [LINK]|
+|A.3|MUST publish an **EGF** that meets the **requirements** in:
+    1. This specification.
+    2. The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) |[LINK]|
