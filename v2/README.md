@@ -1,18 +1,18 @@
 # Placeholder TRTF README v2
 
-The Trust Registry Protocol serves to provide a simple interface to the plethora of systems that contain answers that are required 
-    to make trust decisions. 
+The Trust Registry Protocol serves to provide a simple interface to the plethora of systems that contain answers that are required to make trust decisions. 
 
-    The TRP does not:  
-      * implement governance - the system-of-record that supports the TRP may do this.
-      * make decisions - the TRP serves up data that are inputs to trust decisions.
-      * assign Roles or Rights, though a consuming system may take information that is received via the TRP and assign these.
+The TRP does not:  
+  * implement governance - the system-of-record that supports the TRP may do this.
+  * make decisions - the TRP serves up data that are inputs to trust decisions.
+  * assign Roles or Rights, though a consuming system may take information that is received via the TRP and assign these.
 
 ## UPDATE 2023-09-07
 
 Key changes made:
   * shifting to OAS/Swagger (.yaml format) for main developer-level documentation.
   * Diagrams will be used but OAS file is the source-of-truth.
+  * Refinements of model broadly.
 
 
 ## Requirements

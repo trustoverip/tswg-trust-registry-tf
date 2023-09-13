@@ -408,6 +408,10 @@ components:
           type: string
         description:
           type: string
+        assuranceLevel: 
+          type: string
+          description: Assurance Level .name 
+          example: "ca:PCTF:governmentid:CAL3"
     ResourceType:
       type: object
       description: Resource data as identified by identifier. 
@@ -449,6 +453,7 @@ components:
             - "en"
             - "en-CA"
             - "fr-CA"
+    # TODO: apply AssuranceLevel to Authorization.
     AssuranceLevel: 
       type: object
       description: |

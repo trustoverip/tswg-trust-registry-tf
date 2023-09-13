@@ -51,21 +51,22 @@ class Metadata {
 }
 
 ' inheritance
-
 EGF "1" -- "1" TrustRegistry
 
 TrustRegistry <|-- Query
 TrustRegistry <|-- Lookup 
-
-
+ww
 package QueryDataObjects {
-    object AuthorizationResponse 
+    object EntityAuthorizationResponse {
+        entityid 
+        authorization
+        assurancelevel
+    } 
     object RegistryRecognitionResponse {
         identifier: DID
         name: string
         peerType: enum
         description: string
-
     }
     object Resource {
         identifier: URI
@@ -73,8 +74,8 @@ package QueryDataObjects {
         datatype: string
         payloadJSON: JSON
     }
-    
 }
+
 package Lookups {
     package LookupLists {
         object DIDMethodList
