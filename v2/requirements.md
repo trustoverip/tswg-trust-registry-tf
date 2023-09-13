@@ -138,10 +138,6 @@ The authoritative technical specifications for the API calls in the ToIP Trust R
 
 # Data Model
 
-The authoritative technical specifications for the data model for requests and responses in the ToIP Trust Registry Protocol V1 are specified in Appendix A ([OpenAPI YAML file](https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml)). This section contains a textual description of the requirements.
-
-![textual description of the requirements](https://user-images.githubusercontent.com/103072929/162291432-c85e9977-de52-4403-94c7-3c7fcbcccc98.png)
-
 
 # Appendix A: Consolidated Requirements
 
