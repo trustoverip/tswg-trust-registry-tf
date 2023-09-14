@@ -69,28 +69,28 @@ All other terms in **bold** will be defined in one or more ToIP glossaries in th
 1. MUST have exactly one **primary trust registry**.
 2. MAY have zero or more **secondary trust registries**. (The **primary trust registry** plus all **secondary trust registries** are collectively the **authorized trust registries**.)
 3. MUST publish an **EGF** that meets the **requirements** in:
-    1. This specification.
-    2. The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) must be identified with a **DID**.
+    - i. This specification.
+    - ii. The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) must be identified with a **DID**.
 4. MUST publish, in the **DID document** associated with the **DID** identifying its **EGF**, a **service property **specifying the **service endpoint** for its **primary trust registry** that meets the **requirements** in the _[Trust Registry Service Property](#trust-registry-service-property)_ section.
 5. MUST publish in its **EGF** a list of any other EGFs governing **secondary trust registries.**
 6. MUST specify in the EGF any additional **requirements** for an **authorized trust registry**, including:
-    3. **Information trust requirements**.
-    4. Technical **requirements**.
-    5. Operational **requirements**.
-    6. Legal contracts.
+    - i. **Information trust requirements**.
+    - ii. Technical **requirements**.
+    - iii. Operational **requirements**.
+    - iv. Legal contracts.
 7. MUST specify in its **EGF** (or in any referenced **credential governance framework**) **requirements** for:
-    7. An **authorized issuer**, including:
-        1. The **EGF URI** that MUST be included as a **claim** in any authorized **credential**.
-        2. The **credential type URI** that MUST be used for any authorized **credential**.
-    8. An **authorized verifier**, including:
-        3. The **presentation type URI** that an **authorized verifier** MUST use for any authorized **presentation request**.
+    - i. An **authorized issuer**, including:
+        - a. The **EGF URI** that MUST be included as a **claim** in any authorized **credential**.
+        - b. The **credential type URI** that MUST be used for any authorized **credential**.
+    - ii. An **authorized verifier**, including:
+        a. The **presentation type URI** that an **authorized verifier** MUST use for any authorized **presentation request**.
 8. SHOULD specify in the **EGF** the following **requirements** for an **authorized trust registry** and any **registered party** (i.e., issuer, verifier, or peer trust registry):
-    9. The set of **DID methods** authorized for use in the ecosystem.
-    10. The **requirements** to become authorized.
-    11. How to request registration.
-    12. The **requirements** for assignment of each **status value** for a **registry entry**.
-    13. Access control mechanisms.
-    14. How to request access.
+   - i. The set of **DID methods** authorized for use in the ecosystem.
+   - ii. The **requirements** to become authorized.
+   - iii. How to request registration.
+   - iv. The **requirements** for assignment of each **status value** for a **registry entry**.
+   - v. Access control mechanisms.
+   - vi. How to request access.
 
 
 # Trust Registry Service Property
@@ -111,32 +111,32 @@ The authoritative technical specifications for the API calls in the ToIP Trust R
 
 1. MUST maintain the service implementing this protocol at the HTTPS URI specified in the _[Trust Registry Service Property](#trust-registry-service-property)_ section.
 2. MUST return responses to queries for the **status value** of a **registry entry** that satisfies one or more of the following sets of query parameters:
-    1. **Authorized issuers**: EGF URI, **credential type URI**, issuer URI
-    2. **Authorized verifiers**: EGF URI, **presentation type URI**, verifier URI
-    3. **Trusted peer registries for authorized issuers:** EGF URI, **credential type URI**, EGF URI
-    4. **Trusted peer registries for authorized verifiers:** EGF URI, **presentation type URI**, EGF URI
+    - i. **Authorized issuers**: EGF URI, **credential type URI**, issuer URI
+    - ii. **Authorized verifiers**: EGF URI, **presentation type URI**, verifier URI
+    - iii. **Trusted peer registries for authorized issuers:** EGF URI, **credential type URI**, EGF URI
+    - iv. **Trusted peer registries for authorized verifiers:** EGF URI, **presentation type URI**, EGF URI
 3. MUST return responses using the data model specified in the _[Data Model](#data-model)_ section.
 4. MUST return exactly one of the following **status values** for a **registry entry** satisfying the query parameters:
-    5. `Not found`
-    6. `Current`
-    7. `Expired` (not renewed after the previous valid registration period)
-    8. `Terminated` (voluntary termination by the **registered party**)
-    9. `Revoked` (involuntary termination by the **governing authority**)
+    - i. `Not found`
+    - ii. `Current`
+    - iii. `Expired` (not renewed after the previous valid registration period)
+    - iv. `Terminated` (voluntary termination by the **registered party**)
+    - v. `Revoked` (involuntary termination by the **governing authority**)
 5. For queries returning a **status value** other than `Not Found`, the response MUST return the following values:
-    10. The parameter values exactly as supplied in the query (so responses can be stateless).
-    11. The **status value**.
-    12. Exactly two **datetime values** conforming to the following requirements:
-        1. The value labels MUST be:
-            1. `AuthorizationStartDate`
-            2. `AuthorizationEndDate`
-        2. The values MUST be formatted to comply with [RFC 3339](https://tools.ietf.org/html/rfc3339) in the UTC/Z time zone with no offset.
-        3. The `AuthorizationStartDate` MUST be the date that the **registered party’s** authorization began.
-        4. The `AuthorizationEndDate` MUST be either:
-            3. `Null` for an entry whose **status value** is `Current` at the time of the query.
-            4. A specific date value if the **registered party’s** **status value** is `Expired`, `Terminated` or `Revoked.`
-        5. If a **registered party** has multiple entries (representing an authorization history), the most recent value MUST be returned. 
+    - i. The parameter values exactly as supplied in the query (so responses can be stateless).
+   - ii. The **status value**.
+   - iii. Exactly two **datetime values** conforming to the following requirements:
+        - a. The value labels MUST be:
+            - i. `AuthorizationStartDate`
+            - ii. `AuthorizationEndDate`
+        - b. The values MUST be formatted to comply with [RFC 3339](https://tools.ietf.org/html/rfc3339) in the UTC/Z time zone with no offset.
+        - c. The `AuthorizationStartDate` MUST be the date that the **registered party’s** authorization began.
+        - d. The `AuthorizationEndDate` MUST be either:
+            - i. `Null` for an entry whose **status value** is `Current` at the time of the query.
+            - ii. A specific date value if the **registered party’s** **status value** is `Expired`, `Terminated` or `Revoked.`
+        - e. If a **registered party** has multiple entries (representing an authorization history), the most recent value MUST be returned. 
 
-# Data Model
+# Data Model 
 
 
 # Appendix A: Consolidated Requirements
