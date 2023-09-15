@@ -13,9 +13,15 @@ System(TRAIN, "TRAIN")
 System(EUTrustedList, "EU Trusted List")
 System(NativeSupport, "SystemX"," w Native TRP Support")
 
+System(OpenDataBridge, "OpenData Bridge")
+
+
 Rel(Integrator, Bridge, "TRP")
 Rel(Bridge, TRAIN,"bridges")
 Rel(Bridge, EUTrustedList, "bridges")
+
+Rel(Integrator, OpenDataBridge,"TRP")
+Rel(OpenDataBridge,NativeSupport,"ODPS")
 
 Rel(Integrator, NativeSupport,"TRP")
 
