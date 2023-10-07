@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="870px" preserveAspectRatio="none" style="width:1326px;height:870px;background:#FFFFFF;" version="1.1" viewBox="0 0 1326 870" width="1326px" zoomAndPan="magnify"><defs/><g><rect fill="none" height="26.4883" id="_title" style="stroke:none;stroke-width:1.0;" width="430" x="441" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="420" x="446" y="23.5352">Trust Over IP Trust Registry Protocol v2 Early Exploration</text><!--MD5=[3a621f14500935b052dfa846c69f4ca7]
+cluster QueryDataObjects--><g id="cluster_QueryDataObjects"><path d="M8.5,558.4883 L140.5,558.4883 A3.75,3.75 0 0 1 143,560.9883 L150,580.9766 L660.5,580.9766 A2.5,2.5 0 0 1 663,583.4766 L663,700.9883 A2.5,2.5 0 0 1 660.5,703.4883 L8.5,703.4883 A2.5,2.5 0 0 1 6,700.9883 L6,560.9883 A2.5,2.5 0 0 1 8.5,558.4883 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="150" y1="580.9766" y2="580.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="131" x="10" y="574.0234">QueryDataObjects</text></g><!--MD5=[5cdc0902bc025c3bb9858f3a7555089d]
+cluster Lookups--><g id="cluster_Lookups"><path d="M689.5,544.4883 L751.5,544.4883 A3.75,3.75 0 0 1 754,546.9883 L761,566.9766 L1316.5,566.9766 A2.5,2.5 0 0 1 1319,569.4766 L1319,860.9883 A2.5,2.5 0 0 1 1316.5,863.4883 L689.5,863.4883 A2.5,2.5 0 0 1 687,860.9883 L687,546.9883 A2.5,2.5 0 0 1 689.5,544.4883 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="687" x2="761" y1="566.9766" y2="566.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="61" x="691" y="560.0234">Lookups</text></g><!--MD5=[deb9a7dd478a081ee0b535d69e03ddf6]
+cluster LookupLists--><g id="cluster_LookupLists"><path d="M751.5,587.4883 L840.5,587.4883 A3.75,3.75 0 0 1 843,589.9883 L850,609.9766 L1244.5,609.9766 A2.5,2.5 0 0 1 1247,612.4766 L1247,671.9883 A2.5,2.5 0 0 1 1244.5,674.4883 L751.5,674.4883 A2.5,2.5 0 0 1 749,671.9883 L749,589.9883 A2.5,2.5 0 0 1 751.5,587.4883 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="749" x2="850" y1="609.9766" y2="609.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="88" x="753" y="603.0234">LookupLists</text></g><!--MD5=[9fc06df6b544b489ec91c2a1c10a7a19]
+cluster LookupDataObjects--><g id="cluster_LookupDataObjects"><path d="M713.5,727.4883 L855.5,727.4883 A3.75,3.75 0 0 1 858,729.9883 L865,749.9766 L1292.5,749.9766 A2.5,2.5 0 0 1 1295,752.4766 L1295,836.9883 A2.5,2.5 0 0 1 1292.5,839.4883 L713.5,839.4883 A2.5,2.5 0 0 1 711,836.9883 L711,729.9883 A2.5,2.5 0 0 1 713.5,727.4883 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="711" x2="865" y1="749.9766" y2="749.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="141" x="715" y="743.0234">LookupDataObjects</text></g><path d="M907.5,66.4883 L934.5,66.4883 A3.75,3.75 0 0 1 937,68.9883 L944,88.9766 L948.5,88.9766 A2.5,2.5 0 0 1 951,91.4766 L951,116.9648 A2.5,2.5 0 0 1 948.5,119.4648 L907.5,119.4648 A2.5,2.5 0 0 1 905,116.9648 L905,68.9883 A2.5,2.5 0 0 1 907.5,66.4883 " fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"/><line style="stroke:#181818;stroke-width:0.5;" x1="905" x2="944" y1="88.9766" y2="88.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="26" x="909" y="82.0234">EGF</text><g id="elem_AuthorizationResponse"><rect fill="#F1F1F1" height="36.4883" style="stroke:#181818;stroke-width:0.5;" width="175" x="471.5" y="622.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="478.5" y="638.0234">AuthorizationResponse</text><line style="stroke:#181818;stroke-width:0.5;" x1="472.5" x2="645.5" y1="642.9766" y2="642.9766"/></g><g id="elem_RegistryRecognitionResponse"><rect fill="#F1F1F1" height="94.4414" style="stroke:#181818;stroke-width:0.5;" width="217" x="219.5" y="593.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="226.5" y="609.0234">RegistryRecognitionResponse</text><line style="stroke:#181818;stroke-width:0.5;" x1="220.5" x2="435.5" y1="613.9766" y2="613.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="225.5" y="631.5117">identifier: DID</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="225.5" y="648">name: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="225.5" y="664.4883">peerType: enum</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="225.5" y="680.9766">description: string</text></g><g id="elem_Resource"><rect fill="#F1F1F1" height="94.4414" style="stroke:#181818;stroke-width:0.5;" width="162" x="22" y="593.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="71.5" y="609.0234">Resource</text><line style="stroke:#181818;stroke-width:0.5;" x1="23" x2="183" y1="613.9766" y2="613.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="28" y="631.5117">identifier: URI</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="28" y="648">lastUpdated: datetime</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="28" y="664.4883">datatype: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="28" y="680.9766">payloadJSON: JSON</text></g><g id="elem_DIDMethodList"><rect fill="#F1F1F1" height="36.4883" style="stroke:#181818;stroke-width:0.5;" width="113" x="1117.5" y="622.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="1124.5" y="638.0234">DIDMethodList</text><line style="stroke:#181818;stroke-width:0.5;" x1="1118.5" x2="1229.5" y1="642.9766" y2="642.9766"/></g><g id="elem_AuthorizationList"><rect fill="#F1F1F1" height="36.4883" style="stroke:#181818;stroke-width:0.5;" width="132" x="950" y="622.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="957" y="638.0234">AuthorizationList</text><line style="stroke:#181818;stroke-width:0.5;" x1="951" x2="1081" y1="642.9766" y2="642.9766"/></g><g id="elem_AssuranceLevelsList"><rect fill="#F1F1F1" height="36.4883" style="stroke:#181818;stroke-width:0.5;" width="149" x="765.5" y="622.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="772.5" y="638.0234">AssuranceLevelsList</text><line style="stroke:#181818;stroke-width:0.5;" x1="766.5" x2="913.5" y1="642.9766" y2="642.9766"/></g><g id="elem_DIDMethod"><rect fill="#F1F1F1" height="44.9766" style="stroke:#181818;stroke-width:0.5;" width="135" x="1143.5" y="770.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="1173" y="786.0234">DIDMethod</text><line style="stroke:#181818;stroke-width:0.5;" x1="1144.5" x2="1277.5" y1="790.9766" y2="790.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="1149.5" y="808.5117">didmethod: string</text></g><g id="elem_Authorization"><rect fill="#F1F1F1" height="44.9766" style="stroke:#181818;stroke-width:0.5;" width="153" x="955.5" y="770.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="984.5" y="786.0234">Authorization</text><line style="stroke:#181818;stroke-width:0.5;" x1="956.5" x2="1107.5" y1="790.9766" y2="790.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="961.5" y="808.5117">authorization: string</text></g><g id="elem_AssuranceLevel"><rect fill="#F1F1F1" height="61.4648" style="stroke:#181818;stroke-width:0.5;" width="193" x="727.5" y="762.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="771.5" y="778.0234">AssuranceLevel</text><line style="stroke:#181818;stroke-width:0.5;" x1="728.5" x2="919.5" y1="782.9766" y2="782.9766"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="733.5" y="800.5117">AssuranceIdentifier: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="733.5" y="817">AssuranceName: string</text></g><!--MD5=[402a8fe1e6a67cc1cdd0f7841a868e23]
+class TrustRegistry--><g id="elem_TrustRegistry"><rect codeLine="11" fill="#F1F1F1" height="80.9766" id="TrustRegistry" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="201" x="827" y="221.4883"/><ellipse cx="877.75" cy="237.4883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M880.2231,243.6313 Q879.6421,243.9302 879.0029,244.0796 Q878.3638,244.229 877.6582,244.229 Q875.1514,244.229 873.8315,242.5771 Q872.5117,240.9253 872.5117,237.8042 Q872.5117,234.6748 873.8315,233.0229 Q875.1514,231.3711 877.6582,231.3711 Q878.3638,231.3711 879.0112,231.5205 Q879.6587,231.6699 880.2231,231.9688 L880.2231,234.6914 Q879.5923,234.1104 878.9988,233.8406 Q878.4053,233.5708 877.7744,233.5708 Q876.4297,233.5708 875.7449,234.6375 Q875.0601,235.7041 875.0601,237.8042 Q875.0601,239.896 875.7449,240.9626 Q876.4297,242.0293 877.7744,242.0293 Q878.4053,242.0293 878.9988,241.7595 Q879.5923,241.4897 880.2231,240.9087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="898.25" y="242.7793">TrustRegistry</text><line style="stroke:#181818;stroke-width:0.5;" x1="828" x2="1027" y1="253.4883" y2="253.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="833" y="271.0234">EGFURI</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="833" y="287.5117">RegistryMetadata: Metadata</text><line style="stroke:#181818;stroke-width:0.5;" x1="828" x2="1027" y1="294.4648" y2="294.4648"/></g><!--MD5=[13da9bac1dbd72d3681aa02ec7df7780]
+class RegistryOfRegistries--><g id="elem_RegistryOfRegistries"><rect codeLine="16" fill="#F1F1F1" height="97.4648" id="RegistryOfRegistries" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="170" x="986" y="44.4883"/><ellipse cx="1001" cy="60.4883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1003.4731,66.6313 Q1002.8921,66.9302 1002.2529,67.0796 Q1001.6138,67.229 1000.9082,67.229 Q998.4014,67.229 997.0815,65.5771 Q995.7617,63.9253 995.7617,60.8042 Q995.7617,57.6748 997.0815,56.0229 Q998.4014,54.3711 1000.9082,54.3711 Q1001.6138,54.3711 1002.2612,54.5205 Q1002.9087,54.6699 1003.4731,54.9688 L1003.4731,57.6914 Q1002.8423,57.1104 1002.2488,56.8406 Q1001.6553,56.5708 1001.0244,56.5708 Q999.6797,56.5708 998.9949,57.6375 Q998.3101,58.7041 998.3101,60.8042 Q998.3101,62.896 998.9949,63.9626 Q999.6797,65.0293 1001.0244,65.0293 Q1001.6553,65.0293 1002.2488,64.7595 Q1002.8423,64.4897 1003.4731,63.9087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1015" y="65.7793">RegistryOfRegistries</text><line style="stroke:#181818;stroke-width:0.5;" x1="987" x2="1155" y1="76.4883" y2="76.4883"/><line style="stroke:#181818;stroke-width:0.5;" x1="987" x2="1155" y1="84.4883" y2="84.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="992" y="102.0234">FindDID()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="992" y="118.5117">FindRegistry()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="992" y="135">ListRegistries()</text></g><!--MD5=[91221848cc6fc2b51471cfb300e81a0a]
+class Query--><g id="elem_Query"><rect codeLine="24" fill="#F1F1F1" height="97.4648" id="Query" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="234" x="327" y="406.9883"/><ellipse cx="419.25" cy="422.9883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M421.7231,429.1313 Q421.1421,429.4302 420.5029,429.5796 Q419.8638,429.729 419.1582,429.729 Q416.6514,429.729 415.3315,428.0771 Q414.0117,426.4253 414.0117,423.3042 Q414.0117,420.1748 415.3315,418.5229 Q416.6514,416.8711 419.1582,416.8711 Q419.8638,416.8711 420.5112,417.0205 Q421.1587,417.1699 421.7231,417.4688 L421.7231,420.1914 Q421.0923,419.6104 420.4988,419.3406 Q419.9053,419.0708 419.2744,419.0708 Q417.9297,419.0708 417.2449,420.1375 Q416.5601,421.2041 416.5601,423.3042 Q416.5601,425.396 417.2449,426.4626 Q417.9297,427.5293 419.2744,427.5293 Q419.9053,427.5293 420.4988,427.2595 Q421.0923,426.9897 421.7231,426.4087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="439.75" y="428.2793">Query</text><line style="stroke:#181818;stroke-width:0.5;" x1="328" x2="560" y1="438.9883" y2="438.9883"/><line style="stroke:#181818;stroke-width:0.5;" x1="328" x2="560" y1="446.9883" y2="446.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="333" y="464.5234">EntityAuthorization(entity, right)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="333" y="481.0117">RecognizedRegistry(registryDID)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="333" y="497.5">GetResource(resourceDID)</text></g><!--MD5=[20b457f90cb62bf8a3e8ba178c7a9406]
+class Lookup--><g id="elem_Lookup"><rect codeLine="30" fill="#F1F1F1" height="97.4648" id="Lookup" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="861" y="406.9883"/><ellipse cx="898.95" cy="422.9883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M901.4231,429.1313 Q900.8421,429.4302 900.2029,429.5796 Q899.5638,429.729 898.8582,429.729 Q896.3514,429.729 895.0315,428.0771 Q893.7117,426.4253 893.7117,423.3042 Q893.7117,420.1748 895.0315,418.5229 Q896.3514,416.8711 898.8582,416.8711 Q899.5638,416.8711 900.2112,417.0205 Q900.8587,417.1699 901.4231,417.4688 L901.4231,420.1914 Q900.7923,419.6104 900.1988,419.3406 Q899.6053,419.0708 898.9744,419.0708 Q897.6297,419.0708 896.9449,420.1375 Q896.2601,421.2041 896.2601,423.3042 Q896.2601,425.396 896.9449,426.4626 Q897.6297,427.5293 898.9744,427.5293 Q899.6053,427.5293 900.1988,427.2595 Q900.7923,426.9897 901.4231,426.4087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="918.05" y="428.2793">Lookup</text><line style="stroke:#181818;stroke-width:0.5;" x1="862" x2="994" y1="438.9883" y2="438.9883"/><line style="stroke:#181818;stroke-width:0.5;" x1="862" x2="994" y1="446.9883" y2="446.9883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="867" y="464.5234">DIDMethods()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="867" y="481.0117">Authorizations()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="867" y="497.5">AssuranceLevels()</text></g><!--MD5=[7d2c4ae7970c32f414f93e7b18676929]
+class Metadata--><g id="elem_Metadata"><rect codeLine="41" fill="#F1F1F1" height="146.9297" id="Metadata" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="230" x="1038" y="381.4883"/><ellipse cx="1117.25" cy="397.4883" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1119.7231,403.6313 Q1119.1421,403.9302 1118.5029,404.0796 Q1117.8638,404.229 1117.1582,404.229 Q1114.6514,404.229 1113.3315,402.5771 Q1112.0117,400.9253 1112.0117,397.8042 Q1112.0117,394.6748 1113.3315,393.0229 Q1114.6514,391.3711 1117.1582,391.3711 Q1117.8638,391.3711 1118.5112,391.5205 Q1119.1587,391.6699 1119.7231,391.9688 L1119.7231,394.6914 Q1119.0923,394.1104 1118.4988,393.8406 Q1117.9053,393.5708 1117.2744,393.5708 Q1115.9297,393.5708 1115.2449,394.6375 Q1114.5601,395.7041 1114.5601,397.8042 Q1114.5601,399.896 1115.2449,400.9626 Q1115.9297,402.0293 1117.2744,402.0293 Q1117.9053,402.0293 1118.4988,401.7595 Q1119.0923,401.4897 1119.7231,400.9087 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="1137.75" y="402.7793">Metadata</text><line style="stroke:#181818;stroke-width:0.5;" x1="1039" x2="1267" y1="413.4883" y2="413.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="1044" y="431.0234">TrustRegistryName: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="1044" y="447.5117">RawAPIEndpoint: URL</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="1044" y="464">AuthorityClaim: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="1044" y="480.4883">lastUpdated: datetime</text><line style="stroke:#181818;stroke-width:0.5;" x1="1039" x2="1267" y1="487.4414" y2="487.4414"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="218" x="1044" y="504.9766">EGFURI: URI ' (duplicated above)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1044" y="521.4648">Languages()</text></g><!--MD5=[bf1d94275102545be2386a1b3bf8026a]
+link EGF to TrustRegistry--><g id="link_EGF_TrustRegistry"><path codeLine="54" d="M928,119.6383 C928,146.9183 928,190.3683 928,221.7983 " fill="none" id="EGF-TrustRegistry" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="919.075" y="140.1424">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="919.3547" y="210.6046">1</text></g><!--MD5=[6bd576f5a58fdbd80d7c871ce43d025e]
+reverse link TrustRegistry to Query--><g id="link_TrustRegistry_Query"><path codeLine="56" d="M809.91,309.2083 C736.79,338.1383 643,375.2483 568.69,404.6583 " fill="none" id="TrustRegistry-backto-Query" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="806.89,302.8783,828.06,302.0283,812.04,315.8983,806.89,302.8783" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7807a5622c125705b8c2ec3a79097742]
+reverse link TrustRegistry to Lookup--><g id="link_TrustRegistry_Lookup"><path codeLine="57" d="M928,322.7283 C928,348.6283 928,378.5583 928,403.2983 " fill="none" id="TrustRegistry-backto-Lookup" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="921,322.7583,928,302.7583,935,322.7583,921,322.7583" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[696d9d1da596d4bb5242eb2cb7e89c72]
+link Query to AuthorizationResponse--><g id="link_Query_AuthorizationResponse"><path codeLine="119" d="M562,458.9883 C624.22,458.9883 588.14,567.5183 568.8,616.2683 " fill="none" id="Query-to-AuthorizationResponse" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="566.98,620.7783,574.0437,613.9151,568.8419,616.1379,566.6191,610.936,566.98,620.7783" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4fcd97d6d76d6a70e90b9d89e7182c02]
+link Query to Resource--><g id="link_Query_Resource"><path codeLine="120" d="M326,490.9883 C267.3,490.9883 251.15,504.3983 202,536.4883 C180.46,550.5483 160.13,570.1283 143.55,588.4383 " fill="none" id="Query-to-Resource" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="140.43,591.9283,149.4076,587.8782,143.7598,588.1983,143.4397,582.5506,140.43,591.9283" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0af8b4f6ffc88b05ef2341d31cd650c5]
+link Query to RegistryRecognitionResponse--><g id="link_Query_RegistryRecognitionResponse"><path codeLine="121" d="M326,474.9883 C280.4,474.9883 292.46,538.9783 307.99,587.1383 " fill="none" id="Query-to-RegistryRecognitionResponse" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="309.53,591.7883,310.523,581.9896,307.9703,587.0378,302.9222,584.4851,309.53,591.7883" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f05d9eb1716aa7412412a87c1e21daaf]
+link Lookup to DIDMethodList--><g id="link_Lookup_DIDMethodList"><path codeLine="124" d="M996,458.9883 C1028.83,458.9883 995.13,508.2783 1021,528.4883 C1048.81,550.2183 1069.45,518.8183 1100,536.4883 C1131.28,554.5783 1152.86,591.7983 1164.33,616.1883 " fill="none" id="Lookup-to-DIDMethodList" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1166.4,620.7183,1166.28,610.8702,1164.3138,616.1743,1159.0096,614.2081,1166.4,620.7183" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[71d6ee2ab8fe3971cd89229627081437]
+link Lookup to AuthorizationList--><g id="link_Lookup_AuthorizationList"><path codeLine="125" d="M996,474.9883 C1024.04,474.9883 1020.97,570.3483 1017.92,615.8583 " fill="none" id="Lookup-to-AuthorizationList" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1017.58,620.6883,1022.188,611.9839,1017.923,615.7001,1014.2069,611.4351,1017.58,620.6883" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[04f4806d899953f016cee43d790b970c]
+link Lookup to AssuranceLevelsList--><g id="link_Lookup_AssuranceLevelsList"><path codeLine="128" d="M860,490.9883 C810.14,490.9883 823.73,574.2283 833.71,616.0683 " fill="none" id="Lookup-to-AssuranceLevelsList" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="834.84,620.6883,836.5646,610.9916,833.6408,615.8342,828.7981,612.9104,834.84,620.6883" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[945977dd92952aaf08173b6b5f627157]
+link TrustRegistry to Metadata--><g id="link_TrustRegistry_Metadata"><path codeLine="131" d="M973.8,301.4683 C999.42,323.2683 1032.25,351.2183 1062.79,377.2083 " fill="none" id="TrustRegistry-to-Metadata" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1066.52,380.3883,1062.2541,371.5112,1062.7107,377.1496,1057.0723,377.6062,1066.52,380.3883" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ae259283dbc4308d752fceb6f68ec68d]
+reverse link DIDMethodList to DIDMethod--><g id="link_DIDMethodList_DIDMethod"><path codeLine="135" d="M1181.64,672.5583 C1188.79,701.6583 1199.3,744.3883 1205.61,770.0783 " fill="none" id="DIDMethodList-backto-DIDMethod" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="1178.61,660.2183,1176.1557,666.9989,1181.4708,671.8723,1183.9251,665.0917,1178.61,660.2183" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="1172.6413" y="759.8969">1...n</text></g><!--MD5=[c8bc636c5bd48e541c03004242e1c19c]
+reverse link AuthorizationList to Authorization--><g id="link_AuthorizationList_Authorization"><path codeLine="136" d="M1019.35,672.9583 C1022.44,702.0483 1026.95,744.5083 1029.67,770.0783 " fill="none" id="AuthorizationList-backto-Authorization" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="1018,660.2583,1014.656,666.6471,1019.2672,672.1912,1022.6112,665.8023,1018,660.2583" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="997.4854" y="759.8969">0...n</text></g><!--MD5=[fabc3d85dccc03f9ccf95077b79ea457]
+reverse link AssuranceLevelsList to AssuranceLevel--><g id="link_AssuranceLevelsList_AssuranceLevel"><path codeLine="155" d="M836.63,673.1583 C833.84,699.4383 829.9,736.5383 827.16,762.2583 " fill="none" id="AssuranceLevelsList-backto-AssuranceLevel" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="838,660.2583,833.3888,665.8023,836.7328,672.1912,841.344,666.6471,838,660.2583" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="796.9242" y="751.9258">0...n</text></g><!--MD5=[85a03269e87f120e9bc460db6b0a96b3]
+@startuml
+
+
+
+title Trust Over IP Trust Registry Protocol v2 Early Exploration
+
+package EGF {
+
+}
+
+' object Error 
+class TrustRegistry {
+    EGFURI
+    RegistryMetadata: Metadata
+}
+
+class RegistryOfRegistries {
+    FindDID()
+    FindRegistry()
+    ListRegistries()
+
+
+}
+
+class Query {
+    EntityAuthorization(entity, right)
+    RecognizedRegistry(registryDID)
+    GetResource(resourceDID)  
+}
+
+class Lookup {
+    DIDMethods() 
+    Authorizations()
+    ' ResourceTypes()
+    ' CredentialTypes()
+    ' CredentialSchemas()
+    ' PresentationRequests()
+    ' Overlays()
+    AssuranceLevels()
+}
+
+class Metadata {
+    EGFURI: URI ' (duplicated above)
+    TrustRegistryName: string
+    RawAPIEndpoint: URL 
+    AuthorityClaim: string 
+    lastUpdated: datetime 
+    
+
+    Languages() 
+}
+
+' inheritance
+
+EGF "1" - - "1" TrustRegistry
+
+TrustRegistry <|- - Query
+TrustRegistry <|- - Lookup 
+
+
+package QueryDataObjects {
+    object AuthorizationResponse 
+    object RegistryRecognitionResponse {
+        identifier: DID
+        name: string
+        peerType: enum
+        description: string
+
+    }
+    object Resource {
+        identifier: URI
+        lastUpdated: datetime
+        datatype: string
+        payloadJSON: JSON
+    }
+    
+}
+package Lookups {
+    package LookupLists {
+        object DIDMethodList
+        object AuthorizationList
+        ' object ResourceTypeList
+        
+        object AssuranceLevelsList
+        ' object CredentialTypeList 
+        ' object CredentialSchemaList
+        ' object PresentationRequestList
+        ' object OverlayList 
+        
+    }
+
+    package LookupDataObjects {
+    
+        
+        object DIDMethod {
+            didmethod: string 
+        }
+        object Authorization {
+            authorization: string 
+        }
+
+        ' object ResourceType {
+        '     resourceTypeIdentifier: DID
+        '     resourceTypeString: string
+        '     description: string 
+        ' }
+        object AssuranceLevel {
+            AssuranceIdentifier: string
+            AssuranceName: string
+            'TODO multilingual
+        }
+
+    }
+}
+
+
+
+
+
+Query::EntityAuthorization - -> AuthorizationResponse
+Query::GetResource - -> Resource
+Query::RecognizedRegistry - -> RegistryRecognitionResponse
+
+
+Lookup::DIDMethods - -> DIDMethodList
+Lookup::Authorizations - -> AuthorizationList
+
+' Lookup::ResourceTypes - -> ResourceTypeList  
+Lookup::AssuranceLevels - -> AssuranceLevelsList
+
+' METADATA related objects
+TrustRegistry - -> Metadata 
+
+
+
+DIDMethodList o- - "1...n" DIDMethod 
+AuthorizationList o- - "0...n" Authorization
+' ResourceTypeList o- - "0...n" ResourceType
+
+
+'' High-Level lots of specific classes
+' Lookup::CredentialTypes - -> CredentialTypeList
+' Lookup::CredentialSchemas - -> CredentialSchemaList
+' Lookup::PresentationRequests - -> PresentationRequestList
+' Lookup::Overlays - -> OverlayList
+' Lookup::CredentialTypes - -> CredentialTypeList
+' Lookup::CredentialSchemas - -> CredentialSchemaList
+' Lookup::PresentationRequests - -> PresentationRequestList
+' Lookup::Overlays - -> OverlayList
+' CredentialTypeList o- - "0..n" CredentialType
+' CredentialSchemaList o- - "0..n" CredentialSchema
+' CredentialType o- - CredentialSchema
+' PresentationRequestList o- - "0..n" PresentationRequest
+' OverlayList o- - "0...n" Overlay
+
+AssuranceLevelsList o- - "0...n" AssuranceLevel
+
+'' Use Resources for assets
+' Resource <|- - Overlay
+' Resource <|- - CredentialSchema
+' Resource <|- - PresentationRequest
+' Resource <|- - CredentialType
+
+
+@enduml
+
+@startuml
+
+
+
+title Trust Over IP Trust Registry Protocol v2 Early Exploration
+
+package EGF {
+
+}
+
+class TrustRegistry {
+    EGFURI
+    RegistryMetadata: Metadata
+}
+
+class RegistryOfRegistries {
+    FindDID()
+    FindRegistry()
+    ListRegistries()
+
+
+}
+
+class Query {
+    EntityAuthorization(entity, right)
+    RecognizedRegistry(registryDID)
+    GetResource(resourceDID)  
+}
+
+class Lookup {
+    DIDMethods() 
+    Authorizations()
+    AssuranceLevels()
+}
+
+class Metadata {
+    EGFURI: URI ' (duplicated above)
+    TrustRegistryName: string
+    RawAPIEndpoint: URL 
+    AuthorityClaim: string 
+    lastUpdated: datetime 
+    
+
+    Languages() 
+}
+
+
+EGF "1" - - "1" TrustRegistry
+
+TrustRegistry <|- - Query
+TrustRegistry <|- - Lookup 
+
+
+package QueryDataObjects {
+    object AuthorizationResponse 
+    object RegistryRecognitionResponse {
+        identifier: DID
+        name: string
+        peerType: enum
+        description: string
+
+    }
+    object Resource {
+        identifier: URI
+        lastUpdated: datetime
+        datatype: string
+        payloadJSON: JSON
+    }
+    
+}
+package Lookups {
+    package LookupLists {
+        object DIDMethodList
+        object AuthorizationList
+        
+        object AssuranceLevelsList
+        
+    }
+
+    package LookupDataObjects {
+    
+        
+        object DIDMethod {
+            didmethod: string 
+        }
+        object Authorization {
+            authorization: string 
+        }
+
+        object AssuranceLevel {
+            AssuranceIdentifier: string
+            AssuranceName: string
+        }
+
+    }
+}
+
+
+
+
+
+Query::EntityAuthorization - -> AuthorizationResponse
+Query::GetResource - -> Resource
+Query::RecognizedRegistry - -> RegistryRecognitionResponse
+
+
+Lookup::DIDMethods - -> DIDMethodList
+Lookup::Authorizations - -> AuthorizationList
+
+Lookup::AssuranceLevels - -> AssuranceLevelsList
+
+TrustRegistry - -> Metadata 
+
+
+
+DIDMethodList o- - "1...n" DIDMethod 
+AuthorizationList o- - "0...n" Authorization
+
+
+
+AssuranceLevelsList o- - "0...n" AssuranceLevel
+
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 10:01:30 PDT 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: CA
+--></g></svg>

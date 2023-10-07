@@ -1,0 +1,166 @@
+@startuml
+
+
+
+title Trust Over IP Trust Registry Protocol v2 Early Exploration
+
+package EGF {
+
+}
+
+' object Error 
+class TrustRegistry {
+    EGFURI
+    RegistryMetadata: Metadata
+}
+
+class RegistryOfRegistries {
+    FindDID()
+    FindRegistry()
+    ListRegistries()
+
+
+}
+
+class Query {
+    EntityAuthorization(entity, right)
+    RecognizedRegistry(registryDID)
+    GetResource(resourceDID)  
+}
+
+class Lookup {
+    DIDMethods() 
+    Authorizations()
+    ' ResourceTypes()
+    ' CredentialTypes()
+    ' CredentialSchemas()
+    ' PresentationRequests()
+    ' Overlays()
+    AssuranceLevels()
+}
+
+class Metadata {
+    EGFURI: URI ' (duplicated above)
+    TrustRegistryName: string
+    RawAPIEndpoint: URL 
+    AuthorityClaim: string 
+    lastUpdated: datetime 
+    
+
+    Languages() 
+}
+
+' inheritance
+EGF "1" -- "1" TrustRegistry
+
+TrustRegistry <|-- Query
+TrustRegistry <|-- Lookup 
+ww
+package QueryDataObjects {
+    object EntityAuthorizationResponse {
+        entityid 
+        authorization
+        assurancelevel
+    } 
+    object RegistryRecognitionResponse {
+        identifier: DID
+        name: string
+        peerType: enum
+        description: string
+    }
+    object Resource {
+        identifier: URI
+        lastUpdated: datetime
+        datatype: string
+        payloadJSON: JSON
+    }
+}
+
+package Lookups {
+    package LookupLists {
+        object DIDMethodList
+        object AuthorizationList
+        ' object ResourceTypeList
+        
+        object AssuranceLevelsList
+        ' object CredentialTypeList 
+        ' object CredentialSchemaList
+        ' object PresentationRequestList
+        ' object OverlayList 
+        
+    }
+
+    package LookupDataObjects {
+    
+        
+        object DIDMethod {
+            didmethod: string 
+        }
+        object Authorization {
+            authorization: string 
+        }
+
+        ' object ResourceType {
+        '     resourceTypeIdentifier: DID
+        '     resourceTypeString: string
+        '     description: string 
+        ' }
+        object AssuranceLevel {
+            AssuranceIdentifier: string
+            AssuranceName: string
+            'TODO multilingual
+        }
+
+    }
+}
+
+
+
+
+
+Query::EntityAuthorization --> AuthorizationResponse
+Query::GetResource --> Resource
+Query::RecognizedRegistry --> RegistryRecognitionResponse
+
+
+Lookup::DIDMethods --> DIDMethodList
+Lookup::Authorizations --> AuthorizationList
+
+' Lookup::ResourceTypes --> ResourceTypeList  
+Lookup::AssuranceLevels --> AssuranceLevelsList
+
+' METADATA related objects
+TrustRegistry --> Metadata 
+
+
+
+DIDMethodList o-- "1...n" DIDMethod 
+AuthorizationList o-- "0...n" Authorization
+' ResourceTypeList o-- "0...n" ResourceType
+
+
+'' High-Level lots of specific classes
+' Lookup::CredentialTypes --> CredentialTypeList
+' Lookup::CredentialSchemas --> CredentialSchemaList
+' Lookup::PresentationRequests --> PresentationRequestList
+' Lookup::Overlays --> OverlayList
+' Lookup::CredentialTypes --> CredentialTypeList
+' Lookup::CredentialSchemas --> CredentialSchemaList
+' Lookup::PresentationRequests --> PresentationRequestList
+' Lookup::Overlays --> OverlayList
+' CredentialTypeList o-- "0..n" CredentialType
+' CredentialSchemaList o-- "0..n" CredentialSchema
+' CredentialType o-- CredentialSchema
+' PresentationRequestList o-- "0..n" PresentationRequest
+' OverlayList o-- "0...n" Overlay
+
+AssuranceLevelsList o-- "0...n" AssuranceLevel
+
+'' Use Resources for assets
+' Resource <|-- Overlay
+' Resource <|-- CredentialSchema
+' Resource <|-- PresentationRequest
+' Resource <|-- CredentialType
+
+
+@enduml
