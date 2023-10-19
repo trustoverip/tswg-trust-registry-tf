@@ -40,6 +40,7 @@ To comply with the intellectual property rights protections in[ the charter of t
 
 **Editors**
 
+* Darrell O'Donnell, Continuum Loop
 
 **Contributors**
 
@@ -68,7 +69,7 @@ All other terms in **bold** will be defined in one or more ToIP glossaries in th
 
 1. MUST have exactly one **primary trust registry**.
 2. MAY have zero or more **secondary trust registries**. (The **primary trust registry** plus all **secondary trust registries** are collectively the **authorized trust registries**.)
-3. MUST publish an **EGF** that meets the **requirements** in:
+3. MUST publish an **EGF** that meets the **requirements** of:
     - i. This specification.
     - ii. The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) must be identified with a **DID**.
 4. MUST publish, in the **DID document** associated with the **DID** identifying its **EGF**, a **service property **specifying the **service endpoint** for its **primary trust registry** that meets the **requirements** in the _[Trust Registry Service Property](#trust-registry-service-property)_ section.
@@ -79,16 +80,15 @@ All other terms in **bold** will be defined in one or more ToIP glossaries in th
     - iii. Operational **requirements**.
     - iv. Legal contracts.
 7. MUST specify in its **EGF** (or in any referenced **credential governance framework**) **requirements** for:
-    - i. An **authorized issuer**, including:
-        - a. The **EGF URI** that MUST be included as a **claim** in any authorized **credential**.
-        - b. The **credential type URI** that MUST be used for any authorized **credential**.
-    - ii. An **authorized verifier**, including:
-        a. The **presentation type URI** that an **authorized verifier** MUST use for any authorized **presentation request**.
+    - i. all `authorization` values that are used by the trust registry.
+    - ii. all Assurance Levels, specified with unique names, that are service by the trust registry.
+    - iii. all DID Methods that are supported by the ecosystem, and serviced by the trust registry.
+    - iv. all related resources that are to be serviced by the trust registry. 
+    - v. any metadata required by implementors (e.g. claim name that is mandatory if pointing a credential back to an EGF.) [this is a weak example]
 8. SHOULD specify in the **EGF** the following **requirements** for an **authorized trust registry** and any **registered party** (i.e., issuer, verifier, or peer trust registry):
-   - i. The set of **DID methods** authorized for use in the ecosystem.
-   - ii. The **requirements** to become authorized.
-   - iii. How to request registration.
-   - iv. The **requirements** for assignment of each **status value** for a **registry entry**.
+   - i. The **requirements** to become authorized.
+   - ii. How to request registration.
+   - iii. The **requirements** for assignment of each **authorization** for a **registry entry**.
    - v. Access control mechanisms.
    - vi. How to request access.
 
@@ -102,6 +102,8 @@ The **DID document** for the **DID** that identifies an **EGF** compliant with t
 * The value of the `type` property MUST be `TrustRegistry`.
 * The value of the `serviceEndpoint` property MUST be exactly one HTTPS URI.
 
+`TODO:` reconcile above with Profiles concept. 
+
 
 # Trust Registry Protocol
 
@@ -111,10 +113,8 @@ The authoritative technical specifications for the API calls in the ToIP Trust R
 
 1. MUST maintain the service implementing this protocol at the HTTPS URI specified in the _[Trust Registry Service Property](#trust-registry-service-property)_ section.
 2. MUST return responses to queries for the **status value** of a **registry entry** that satisfies one or more of the following sets of query parameters:
-    - i. **Authorized issuers**: EGF URI, **credential type URI**, issuer URI
-    - ii. **Authorized verifiers**: EGF URI, **presentation type URI**, verifier URI
-    - iii. **Trusted peer registries for authorized issuers:** EGF URI, **credential type URI**, EGF URI
-    - iv. **Trusted peer registries for authorized verifiers:** EGF URI, **presentation type URI**, EGF URI
+    - i. **Entity Authorization**: entityDID, authorization
+    - ii. **Recognized Registry:** entityDID
 3. MUST return responses using the data model specified in the _[Data Model](#data-model)_ section.
 4. MUST return exactly one of the following **status values** for a **registry entry** satisfying the query parameters:
     - i. `Not found`
@@ -138,16 +138,19 @@ The authoritative technical specifications for the API calls in the ToIP Trust R
 
 # Data Model 
 
+`TODO:` build out data model pieces - do work on OAS/Swagger, then move here.
 
 # Appendix A: Consolidated Requirements
 
 For ease of reference, the following table consolidates all normative requirements in this specification. Each requirement is linked to the section in which it appears.
+
+`THE FOLLOWING REQUIREMENTS IN THE TABLE ARE JUST EXAMPLES FOR NOW.`
 
 | Req # | Description | Section |
 |---------|--------------|-----------|
 | | **General ToIP Architecture Requirements**| |
 | A.1 | MUST have exactly one **primary trust registry**. | [LINK] |
 |A.2 | MAY have zero or more **secondary trust registries**. (The **primary trust registry** plus all **secondary trust registries** are collectively the **authorized trust registries**.) | [LINK]|
-|A.3|MUST publish an **EGF** that meets the **requirements** in:
-    1. This specification.
-    2. The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) |[LINK]|
+|A.3|MUST publish an **EGF** that meets the **requirements** in: 
+|A.3.1|    This specification. | [LINK]
+|A.3.2| The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) |[LINK]|
