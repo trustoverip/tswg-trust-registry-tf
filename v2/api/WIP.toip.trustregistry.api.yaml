@@ -5,7 +5,15 @@ servers:
     url: https://virtserver.swaggerhub.com/darrellodonnell/ToIP.TrustRegistry/0.1.0
 info:
   description: |
-    TODO: update description
+    TODO: update description 
+    # Trust Registry capabilities
+    * List Assurance levels - TODO: 
+    * List namespaces supported - TODO: 
+    # Registry of Registries (RoR) capabilities. 
+    RoR capabilities include:
+    * signaling basic acknowledgement of other registries.
+    * list the acknowledged trust registries that the RoR recognizes and what 
+    that may mean in the context of a particular governance framework.
   version: "0.2.0"
   title: Trust Over IP Trust Registry Protocol (RESTful API) v2 
   contact:
@@ -88,7 +96,9 @@ paths:
     get:
       tags:
         -  new-v2-query
-      summary: Query this Trust Registry about its recognition of another Trust Registry
+      summary: |
+        Query this Trust Registry about its recognition of another Trust Registry.
+        TODO: determine RoR (registry of registry) impacts here.
       parameters:
         - in: query
           name: trustregistryidentifier 
@@ -128,6 +138,35 @@ paths:
             Do **NOT** escape the URI.
           allowReserved: true # allow reserved characters per RFC3986
         
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PLACEHOLDER'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /lookup/namespaces:
+    
+    get:
+      tags:
+        -  new-v2-lookup
+      summary: Get a list of the namespaces that this trust registry supports.
+      parameters:
+        - in: query
+          name: egfURI 
+          required: true
+          schema:
+            $ref: '#/components/schemas/Uri'
+          description: |
+            The URI-based identifier of a DID or X.509 Issuer. Allows reserved characters per RFC3986. 
+            Do **NOT** escape the URI.
+          allowReserved: true # allow reserved characters per RFC3986
       responses:
         '200':
           description: search results matching criteria
@@ -454,6 +493,27 @@ components:
             - "en-CA"
             - "fr-CA"
     # TODO: apply AssuranceLevel to Authorization.
+    Namespace: 
+      type: object
+      description: |
+        Namespace object - formal name, EGF that governs namespace, VC/DIDAuth/etc.
+      required:
+        - namespaceDID
+        - namespace
+      properties:
+        namespaceDID:
+          type: string
+          format: URI
+          example: 'did:example:123'
+        namespace: 
+          type: string
+          example: 
+            - "ca.issuer.driverlicense"
+            - "mining.tsm" 
+        egfURI:
+          type: string
+        
+
     AssuranceLevel: 
       type: object
       description: |
@@ -491,6 +551,7 @@ components:
         description:
           type: string
           example: "Established on June 14, 1922, Professional Engineers Ontario (PEO) is the licensing and regulating body for professional engineering in the province."
+        
         peerType:
           type: string
           enum:

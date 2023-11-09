@@ -23,7 +23,7 @@ class RegistryOfRegistries {
 }
 
 class Query {
-    EntityAuthorization(entity, right)
+    EntityAuthorization(entity, authorization)
     RecognizedRegistry(registryDID)
     GetResource(resourceDID)  
 }
@@ -37,6 +37,7 @@ class Lookup {
     ' PresentationRequests()
     ' Overlays()
     AssuranceLevels()
+    Namespaces() 
 }
 
 class Metadata {
@@ -45,6 +46,7 @@ class Metadata {
     RawAPIEndpoint: URL 
     AuthorityClaim: string 
     lastUpdated: datetime 
+    namespaces: string[]
     
 
     Languages() 
@@ -55,7 +57,7 @@ EGF "1" -- "1" TrustRegistry
 
 TrustRegistry <|-- Query
 TrustRegistry <|-- Lookup 
-ww
+
 package QueryDataObjects {
     object EntityAuthorizationResponse {
         entityid 
