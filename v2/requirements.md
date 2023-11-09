@@ -68,7 +68,9 @@ All other terms in **bold** will be defined in one or more ToIP glossaries in th
 **Governing authorities** compliant with this specification:
 
 1. MUST have exactly one **primary trust registry**.
-2. MAY have zero or more **secondary trust registries**. (The **primary trust registry** plus all **secondary trust registries** are collectively the **authorized trust registries**.)
+2. MAY have one or more **secondary trust registries**.
+
+The **primary trust registry** plus all **secondary trust registries** are collectively referred to as the **authorized trust registries**.
 3. MUST publish an **EGF** that meets the **requirements** of:
     - i. This specification.
     - ii. The [ToIP Governance Architecture Specification](https://wiki.trustoverip.org/pages/viewpage.action?pageId=71241). Note that this includes the requirement that the **EGF** and all **governed parties** (which includes **authorized issuers** and **authorized verifiers**) must be identified with a **DID**.
