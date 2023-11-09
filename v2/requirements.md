@@ -86,7 +86,9 @@ The **primary trust registry** plus all **secondary trust registries** are colle
     - ii. all Assurance Levels, specified with unique names, that are service by the trust registry.
     - iii. all DID Methods that are supported by the ecosystem, and serviced by the trust registry.
     - iv. all related resources that are to be serviced by the trust registry. 
-    - v. any metadata required by implementors (e.g. claim name that is mandatory if pointing a credential back to an EGF.) [this is a weak example]
+   - v. any metadata required by implementors (e.g. claim name that is mandatory if pointing a credential back to an EGF.) [this is a weak example]
+   - vi. on which basis the trust registry claims to be authoritative
+   - vii. means by which others are able to verify the asserted authority
 8. SHOULD specify in the **EGF** the following **requirements** for an **authorized trust registry** and any **registered party** (i.e., issuer, verifier, or peer trust registry):
    - i. The **requirements** to become authorized.
    - ii. How to request registration.
