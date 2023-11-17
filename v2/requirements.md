@@ -29,6 +29,7 @@ To comply with the intellectual property rights protections in[ the charter of t
 * Antti 
 * Andor
 * Christine Martin, Continuum Loop
+* Jacques Latour, CIRA
 
 **Editors**
 
@@ -54,13 +55,20 @@ The purpose of this **ToIP specification** is to define a standard interoperable
 
 A core role within **Layer 4** of the **ToIP stack** is a **trust registry** (previously known as a **member directory**). This is a network service that enables the **governing authority** for an **ecosystem governance framework (EGF)** to specify what **governed parties** are authorized to perform what **actions** under the EGF. For example:
 
-[`TODO:` - revise bullets to reflect registry-of-registr, registry signalling, and non-credential use as well.]
+[`TODO:` - revise bullets to reflect registry-of-registry, registry signalling, and non-credential use as well.]
 
 1. Which **issuers** are **authorized** to issue what types of **verifiable credentials**.
 2. Which **verifiers** are **authorized** to request what types of **verifiable presentations**.
 3. What other **governing authorities** are trusted to authorize which **parties** can perform what **actions** within their own **trust registries**.
 
 As with all layers of the **ToIP stack**, the purpose of a **ToIP specification** is to enable the technical interoperability necessary to support **transitive trust** within and between different **trust communities** implementing the **ToIP stack**. In this case, the desired interoperability outcome is a common protocol that works between any number of decentralized **peer trust registries** operated by independent **governing authorities** representing multiple legal and business **jurisdictions**. One specific example of this need is the **digital trust ecosystem** defined by the [Interoperability Working Group for Good Health Pass](https://wiki.trustoverip.org/pages/viewpage.action?pageId=73790) (GHP). 
+
+Registry of Registries (RoR) core function is the registration of other trusr registry.  RoR also includes lookup function to find trust registries based on known credential type
+
+1. What other **governing authorities** are trusted to authorize which **parties** can perform what **actions** within their own **trust registries**.
+2. Which **trust registry** are known to issue certain type of of **verifiable credentials**
+	a. for example, which trust registry is known to issue university diplomas?
+3. Which **trust registry** are known to operate in a given **EFG**.
 
 # Conceptual Diagrams
 
@@ -129,6 +137,7 @@ The **primary trust registry** plus all **secondary trust registries** are colle
    - vi. How to request access where unrestricted public access is not available.
 
 
+
 # Trust Registry Service Property
 
 The **DID document** for the **DID** that identifies an **EGF** compliant with this specification MUST include a service property that meets the **requirements** [in section 5.4 of the W3C Decentralized Identifiers (DIDs) 1.0 specification](https://www.w3.org/TR/did-core/#services) plus the following additional **requirements**:
@@ -137,6 +146,8 @@ The **DID document** for the **DID** that identifies an **EGF** compliant with t
 * The value of the `serviceEndpoint` property MUST be exactly one HTTPS URI.
 
 [`TODO:` reconcile above with Profiles concept. ]
+
+[`TODO:` The issuer/verifier needs to state their primary trust registry affiliation (a trust relationship) - is this a new section?]
 
 
 # Trust Registry Protocol
