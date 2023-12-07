@@ -7,12 +7,44 @@ The TRP does not:
   * make decisions - the TRP serves up data that are inputs to trust decisions.
   * assign Roles or Rights, though a consuming system may take information that is received via the TRP and assign these.
 
-## UPDATE 2023-09-07
+
+
+## Design Decisions
+
+* multi-lingual support will NOT be created as the API (protcol) is intended for non-human use. That said, we will need some ability to map identifiers (e.g. AssuranceLevelType.identifier) to human-readable names and descriptions. 
+* Registry, Entity Authorizations, and Registry of Registry functionality are interwoven. Which leads to...
+
+## ISSUE - Querying vs. Snooping
+
+Querying the most basic query "Does this Entity (identified with VID) have this Authorization (identified with VID)?" feels too complex.
+  `/query/{entity-VID}?authorization="authorization-VID"` where the `authorization` parameter is required.
+  * but just looking (inspecting, snooping) at an Entity feels invasive.
+
+This issue may mean that the general Entity queries should be separated from a browseable API???
+
+OPTIONS:
+
+* specify that HTTP 405 (Method Not Allowed) MUST be returned if a particular feature (browsing) is NOT allowed. https://www.rfc-editor.org/rfc/rfc7231#section-6.5.5 
+  * could create implementor's guide for MANDATORY & OTHER (profiles)
+  * This (i.e. returning 405) is an odd way of dealing with an issue. 
+* create 2 (or more) APIs - most basic and richer?
+* other???
+
+
+## UPDATE 2023-12-07
 
 Key changes made:
-  * shifting to OAS/Swagger (.yaml format) for main developer-level documentation.
-  * Diagrams will be used but OAS file is the source-of-truth.
-  * Refinements of model broadly.
+  * Path & Parameter approach implemented
+    * PATH for first-class objects (e.g. Entities in TR)
+    * PARAMETERS for filtering/refining/naming data returned
+  * ___Type and ____ListType used for main objects and the array/list of those objects
+  * Added DIDMethod object.
+  * Added Integrity object for Resources (ref only?)
+  * Resources
+    * Referenced - points to a URL
+    * Direct - JSON payload?
+  * NAMESPACES - added (early) namespaces concept. 
+
 
 
 ## Requirements

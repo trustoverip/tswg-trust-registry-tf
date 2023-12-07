@@ -63,7 +63,7 @@ A core role within **Layer 4** of the **ToIP stack** is a **trust registry** (pr
 
 As with all layers of the **ToIP stack**, the purpose of a **ToIP specification** is to enable the technical interoperability necessary to support **transitive trust** within and between different **trust communities** implementing the **ToIP stack**. In this case, the desired interoperability outcome is a common protocol that works between any number of decentralized **peer trust registries** operated by independent **governing authorities** representing multiple legal and business **jurisdictions**. One specific example of this need is the **digital trust ecosystem** defined by the [Interoperability Working Group for Good Health Pass](https://wiki.trustoverip.org/pages/viewpage.action?pageId=73790) (GHP). 
 
-Registry of Registries (RoR) core function is the registration of other trusr registry.  RoR also includes lookup function to find trust registries based on known credential type
+Registry of Registries (RoR) core function is the registration of other trust registry.  RoR also includes lookup function to find trust registries based on known credential type
 
 1. What other **governing authorities** are trusted to authorize which **parties** can perform what **actions** within their own **trust registries**.
 2. Which **trust registry** are known to issue certain type of of **verifiable credentials**
@@ -145,6 +145,7 @@ The **DID document** for the **DID** that identifies an **EGF** compliant with t
 * The value of the `type` property MUST be `TrustRegistry`.
 * The value of the `serviceEndpoint` property MUST be exactly one HTTPS URI.
 
+
 [`TODO:` reconcile above with Profiles concept. ]
 
 [`TODO:` The issuer/verifier needs to state their primary trust registry affiliation (a trust relationship) - is this a new section?]
@@ -181,9 +182,14 @@ The authoritative technical specifications for the API calls in the ToIP Trust R
             - ii. A specific date value if the **registered party’s** **status value** is `Expired`, `Terminated` or `Revoked.`
         - e. If a **registered party** has multiple entries (representing an authorization history), the most recent value MUST be returned. 
 
+
+
 # Data Model 
 
 `TODO:` build out data model pieces - do work on OAS/Swagger, then move here.
+
+1.  A trust registry must support ONE or more DID Methods.
+    - (TODO: LOOSE needs a home somewhere in this document) - 
 
 # Appendix A: Consolidated Requirements
 

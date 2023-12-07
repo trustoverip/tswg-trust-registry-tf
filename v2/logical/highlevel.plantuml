@@ -23,12 +23,13 @@ class RegistryOfRegistries {
 }
 
 class Query {
-    EntityAuthorization(entity, authorization)
-    RecognizedRegistry(registryDID)
-    GetResource(resourceDID)  
+    Entities
+    Registries
+    Resources
 }
 
 class Lookup {
+    Namespaces()
     DIDMethods() 
     Authorizations()
     ' ResourceTypes()
@@ -37,7 +38,7 @@ class Lookup {
     ' PresentationRequests()
     ' Overlays()
     AssuranceLevels()
-    Namespaces() 
+     
 }
 
 class Metadata {
@@ -59,77 +60,88 @@ TrustRegistry <|-- Query
 TrustRegistry <|-- Lookup 
 
 package QueryDataObjects {
-    object EntityAuthorizationResponse {
-        entityid 
-        authorization
-        assurancelevel
-    } 
-    object RegistryRecognitionResponse {
-        identifier: DID
+    
+
+    class RegistryList
+    class ResourceList
+    class EntityList
+
+
+    class Entity {
+        identifier: VID
+        didmethod: DIDMethod
+        Authorizations[]
+        registryListings[]
+        Namespaces[]
+        HasAuthorization(Authorization)
+    }
+
+    object Registry {
+        identifier: VID
         name: string
         peerType: enum
         description: string
+        RecognizedNamespaces[]
     }
     object Resource {
-        identifier: URI
+        identifier: VID 
         lastUpdated: datetime
         datatype: string
         payloadJSON: JSON
+        payloadURI: string
+        integrity: Integrity
     }
 }
+
+object Integrity
 
 package Lookups {
     package LookupLists {
+        object NamespaceList
         object DIDMethodList
-        object AuthorizationList
-        ' object ResourceTypeList
-        
         object AssuranceLevelsList
-        ' object CredentialTypeList 
-        ' object CredentialSchemaList
-        ' object PresentationRequestList
-        ' object OverlayList 
-        
+        object AuthorizationList      
     }
 
-    package LookupDataObjects {
+    object DIDMethod {
+        didmethod: string 
+        maximumAssuranceLevel: AssuranceLevel
+    }
+    object Authorization {
+        authorization: string 
+    }
+
+    ' object ResourceType {
+    '     resourceTypeIdentifier: DID
+    '     resourceTypeString: string
+    '     description: string 
+    ' }
     
-        
-        object DIDMethod {
-            didmethod: string 
-        }
-        object Authorization {
-            authorization: string 
-        }
-
-        ' object ResourceType {
-        '     resourceTypeIdentifier: DID
-        '     resourceTypeString: string
-        '     description: string 
-        ' }
-        object AssuranceLevel {
-            AssuranceIdentifier: string
-            AssuranceName: string
-            'TODO multilingual
-        }
-
+    object Namespace
+    object AssuranceLevel {
+        identifier: string
+        name: string
+        'TODO multilingual
     }
+
+
 }
 
 
+Query::Entities --> EntityList
+Query::Resources --> ResourceList
+Query::Registries --> RegistryList
 
+EntityList o-- "0..n" Entity
+RegistryList  o-- "0..n" Registry
+ResourceList  o-- "0..n" Resource 
 
-
-Query::EntityAuthorization --> AuthorizationResponse
-Query::GetResource --> Resource
-Query::RecognizedRegistry --> RegistryRecognitionResponse
-
+Resource::integrity --> Integrity
 
 Lookup::DIDMethods --> DIDMethodList
 Lookup::Authorizations --> AuthorizationList
-
-' Lookup::ResourceTypes --> ResourceTypeList  
 Lookup::AssuranceLevels --> AssuranceLevelsList
+Lookup::Namespaces --> NamespaceList
 
 ' METADATA related objects
 TrustRegistry --> Metadata 
@@ -138,6 +150,7 @@ TrustRegistry --> Metadata
 
 DIDMethodList o-- "1...n" DIDMethod 
 AuthorizationList o-- "0...n" Authorization
+NamespaceList o-- "0..n" Namespace
 ' ResourceTypeList o-- "0...n" ResourceType
 
 
