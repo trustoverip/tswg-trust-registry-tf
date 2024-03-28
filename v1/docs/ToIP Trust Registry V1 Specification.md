@@ -207,7 +207,7 @@ The authoritative technical specifications for the data model for requests and r
 
 # APPENDIX A: OpenAPI Specification
 
-The OpenAPI YAML file can be found here: [https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml](https://github.com/trustoverip/tswg-trust-registry-tf/blob/main/api/toip.trustregistry.api.yaml) 
+The OpenAPI YAML file can be found here: [https://github.com/trustoverip/tswg-trust-registry-tf/blob/17b1a4244ae1edf786977cb3fc53afe55abd0f88/v1/api/toip.trustregistry.api.yaml](https://github.com/trustoverip/tswg-trust-registry-tf/blob/17b1a4244ae1edf786977cb3fc53afe55abd0f88/v1/api/toip.trustregistry.api.yaml)
 
 <&lt;TODO: to replace with a tagged commit once we have “locked” things down.>>
 
