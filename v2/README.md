@@ -1,13 +1,13 @@
-# Placeholder TRTF README v2
+# Placeholder TRQP README v2
 
-The Trust Registry Protocol serves to provide a simple interface to the plethora of systems that contain answers that are required to make trust decisions. 
+_note_: the name of the protocol is being deliberated. TRQP is a standing name until we have aligned on a long term name. 
 
-The TRP does not:  
-  * implement governance - the system-of-record that supports the TRP may do this.
-  * make decisions - the TRP serves up data that are inputs to trust decisions.
-  * assign Roles or Rights, though a consuming system may take information that is received via the TRP and assign these.
+The Trust Registry Query Protocol serves to provide a simple interface to the plethora of systems that contain answers that are required to make trust decisions. 
 
-
+The TRPQ does not:  
+  * implement governance - the system-of-record that supports the TRPQ may do this.
+  * make decisions - the TRPQ serves up data that are inputs to trust decisions.
+  * assign Roles or Rights, though a consuming system may take information that is received via the TRPQ and assign these.
 
 ## Design Decisions
 
@@ -60,7 +60,7 @@ Requirements capture is located at:
 
 The first "concrete" API specification is an Open API Specification v3 YAML file. 
 
-[OAS (.yaml) for TRP v2](../v2/api/WIP.toip.trustregistry.api.yaml)
+[OAS (.yaml) for TRPQ v2](../v2/api/WIP.toip.trustregistry.api.yaml)
 
 
 
@@ -77,9 +77,9 @@ We provide a high-level object model (NOTE: source of truth is the Swagger as th
 
 ### Integration Model
 
-As the TRP is a protocol, those systems that don't natively support it can be connected via "bridge". 
+As the TRPQ is a protocol, those systems that don't natively support it can be connected via "bridge". 
 
 An early example is shown below:
-![C4 Systems Model - showing native TRP support on one system, bridged support to two other systems (e.g. TRAIN and EU Trusted List ARF)](../out/v2/logical/protocol-bridging/protocol-bridging.svg)
+![C4 Systems Model - showing native TRPQ support on one system, bridged support to two other systems (e.g. TRAIN and EU Trusted List ARF)](../out/v2/logical/protocol-bridging/protocol-bridging.svg)
 
 
