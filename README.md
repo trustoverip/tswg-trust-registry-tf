@@ -1,5 +1,7 @@
 # Trust Registry Task Force
 
+> DEPRECATED: This spec is deprecated. Please refer to [TRP Protocol](https://github.com/trustoverip/tswg-trust-registry-protocol/tree/main) for the latest version of the spec.
+
 ## Objective
 
 The objective of the Trust Registry Task Force is to develop the `ToIP Trust Registry Protocol` as a ToIP Layer 3 `trust task` protocol that enables
